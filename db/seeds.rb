@@ -31,6 +31,9 @@
   },
   {
     name: '11) Sampler'
+  },
+  {
+    name: '12) Waveform'
   }
 ]
 
