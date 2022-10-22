@@ -28,18 +28,14 @@ export default class Container extends Component {
 
   handleStart = () => {
     const { bassSettings, melodySettings } = this.state
-
     //
     //
     bassSynth = new Tone.Synth(bassSettings.synth)
     bassChorus = new Tone.Chorus(bassSettings.chorus).start()
-
     bassPingPongDelay = new Tone.PingPongDelay(
       bassSettings.pingPongDelay
     ).toDestination()
-
     bassSynth.chain(bassChorus, bassPingPongDelay)
-
 
     const bassPart = new Tone.Part((time, note) => {
       bassSynth.triggerAttackRelease(
@@ -49,7 +45,6 @@ export default class Container extends Component {
         note.velocity
       )
     }, bassSettings.sequence.steps).start(0)
-
     bassPart.loopEnd = bassSettings.sequence.duration
     bassPart.loop = true
 
@@ -58,13 +53,10 @@ export default class Container extends Component {
 
     melodySynth = new Tone.Synth(melodySettings.synth)
     melodyChorus = new Tone.Chorus(melodySettings.chorus).start()
-
     melodyPingPongDelay = new Tone.PingPongDelay(
       melodySettings.pingPongDelay
     ).toDestination()
-
     melodySynth.chain(melodyChorus, melodyPingPongDelay)
-
 
     const melodyPart = new Tone.Part((time, note) => {
       melodySynth.triggerAttackRelease(
@@ -74,7 +66,6 @@ export default class Container extends Component {
         note.velocity
       )
     }, melodySettings.sequence.steps).start(0)
-
     melodyPart.loopEnd = melodySettings.sequence.duration
     melodyPart.loop = true
     //
@@ -101,6 +92,7 @@ export default class Container extends Component {
       bassSynth.envelope.release = value
       bassSettings.synth.envelope.release = value
 
+    } else if (property === 'pingPongDelayWet') {
       bassPingPongDelay.wet.value = value
       bassSettings.pingPongDelay.wet = value
     } else if (property === 'chorusWet') {
@@ -167,24 +159,7 @@ export default class Container extends Component {
         settings = {melodySettings}
         handleValueChange = {this.handleMelodyValueChange}
         />
-        <SC_Slider
-          name="Chorus Wet"
-          min={0}
-          max={1}
-          step={0.01}
-          value={bassSettings.chorus.wet}
-          property="chorusWet"
-          handleChange={this.handleBassValueChange}
-        />
-        <SC_Slider
-          name="Delay Wet"
-          min={0}
-          max={1}
-          step={0.01}
-          value={bassSettings.pingPongDelay.wet}
-          property="pingPongDelayWet"
-          handleChange={this.handleBassValueChange}
-        />
+
       </div>
     )
   }

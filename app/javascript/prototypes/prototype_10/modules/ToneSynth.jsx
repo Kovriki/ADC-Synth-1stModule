@@ -59,6 +59,29 @@ export default class ToneSynth extends Component {
         handleChange={handleValueChange}
       />
 
+      <SC_Slider
+        name="Chorus Wet"
+        min={0}
+        max={1}
+        step={0.01}
+        value={settings.chorus.wet}
+        property="chorusWet"
+        handleChange={handleValueChange}
+      />
+      <SC_Slider
+        name="Delay Wet"
+        min={0}
+        max={1}
+        step={0.01}
+        value={settings.pingPongDelay.wet}
+        property="pingPongDelayWet"
+        handleChange={handleValueChange}
+      />
+
+
+
+
+
       </div>
     )
   }
