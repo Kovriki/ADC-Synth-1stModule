@@ -28,6 +28,9 @@
   },
   {
     name: '10) synth1 + synth2'
+  },
+  {
+    name: '11) Sampler'
   }
 ]
 

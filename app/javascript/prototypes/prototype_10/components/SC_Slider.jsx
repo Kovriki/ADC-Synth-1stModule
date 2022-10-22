@@ -1,6 +1,6 @@
-import React, { PureComponent } from 'react'
+import React, { Component } from 'react'
 
-export default class SC_Slider extends PureComponent {
+export default class SC_Slider extends Component {
   constructor(props) {
     super(props)
     this.input = React.createRef()

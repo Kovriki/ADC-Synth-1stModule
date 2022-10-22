@@ -26232,3 +26232,514 @@ Processing by PrototypesController#show as HTML
 Completed 200 OK in 48ms (Views: 45.0ms | ActiveRecord: 0.1ms | Allocations: 6161)
 
 
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (1.6ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mCACHE ActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mCACHE ActiveRecord::InternalMetadata Pluck (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mCACHE ActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mCACHE ActiveRecord::InternalMetadata Pluck (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (5.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreatePrototypes (20220909033546)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "prototypes" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "about" text, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220909033546"]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-10-22 14:11:32.082158"], ["updated_at", "2022-10-22 14:11:32.082158"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPrototype Create (0.6ms)[0m  [1m[32mINSERT INTO "prototypes" ("name", "about", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "1) First module / First prototype"], ["about", nil], ["created_at", "2022-10-22 14:11:32.097021"], ["updated_at", "2022-10-22 14:11:32.097021"]]
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPrototype Create (0.5ms)[0m  [1m[32mINSERT INTO "prototypes" ("name", "about", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "2) First oscillator"], ["about", nil], ["created_at", "2022-10-22 14:11:32.101351"], ["updated_at", "2022-10-22 14:11:32.101351"]]
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPrototype Create (0.4ms)[0m  [1m[32mINSERT INTO "prototypes" ("name", "about", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "3) Abstract"], ["about", nil], ["created_at", "2022-10-22 14:11:32.105544"], ["updated_at", "2022-10-22 14:11:32.105544"]]
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPrototype Create (0.3ms)[0m  [1m[32mINSERT INTO "prototypes" ("name", "about", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "4) Oscillator with React components"], ["about", nil], ["created_at", "2022-10-22 14:11:32.110262"], ["updated_at", "2022-10-22 14:11:32.110262"]]
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPrototype Create (0.3ms)[0m  [1m[32mINSERT INTO "prototypes" ("name", "about", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "5) Work with Tone.js"], ["about", nil], ["created_at", "2022-10-22 14:11:32.114396"], ["updated_at", "2022-10-22 14:11:32.114396"]]
+  [1m[36mTRANSACTION (8.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPrototype Create (0.5ms)[0m  [1m[32mINSERT INTO "prototypes" ("name", "about", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "6) Try to find kalimba"], ["about", nil], ["created_at", "2022-10-22 14:11:32.126221"], ["updated_at", "2022-10-22 14:11:32.126221"]]
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPrototype Create (0.3ms)[0m  [1m[32mINSERT INTO "prototypes" ("name", "about", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "7) Notes Display"], ["about", nil], ["created_at", "2022-10-22 14:11:32.130467"], ["updated_at", "2022-10-22 14:11:32.130467"]]
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPrototype Create (0.5ms)[0m  [1m[32mINSERT INTO "prototypes" ("name", "about", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "8) My turn"], ["about", nil], ["created_at", "2022-10-22 14:11:32.138456"], ["updated_at", "2022-10-22 14:11:32.138456"]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPrototype Create (3.9ms)[0m  [1m[32mINSERT INTO "prototypes" ("name", "about", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "9) Tone with UI"], ["about", nil], ["created_at", "2022-10-22 14:11:32.143591"], ["updated_at", "2022-10-22 14:11:32.143591"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPrototype Create (0.3ms)[0m  [1m[32mINSERT INTO "prototypes" ("name", "about", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "10) synth1 + synth2"], ["about", nil], ["created_at", "2022-10-22 14:11:32.152747"], ["updated_at", "2022-10-22 14:11:32.152747"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPrototype Create (0.3ms)[0m  [1m[32mINSERT INTO "prototypes" ("name", "about", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "11) Sampler"], ["about", nil], ["created_at", "2022-10-22 14:11:32.156234"], ["updated_at", "2022-10-22 14:11:32.156234"]]
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/prototypes/10" for ::1 at 2022-10-22 17:11:59 +0300
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PrototypesController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mPrototype Load (0.1ms)[0m  [1m[34mSELECT "prototypes".* FROM "prototypes" WHERE "prototypes"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/prototypes_controller.rb:63:in `set_prototype'
+  Rendering layout layouts/application.html.erb
+  Rendering prototypes/show.html.erb within layouts/application
+[Webpacker] Compiling...
+[Webpacker] Compilation failed:
+Hash: 32d4ac9a25370eca0680
+Version: webpack 4.46.0
+Time: 4346ms
+Built at: 10/22/2022 5:12:05 PM
+                                      Asset      Size        Chunks                         Chunk Names
+     js/hello_react-6fb14348d4f37ea39fe6.js  1.25 MiB   hello_react  [emitted] [immutable]  hello_react
+ js/hello_react-6fb14348d4f37ea39fe6.js.map  1.44 MiB   hello_react  [emitted] [dev]        hello_react
+     js/prototype_1-1a4cfa94f97b24700021.js  5.64 KiB   prototype_1  [emitted] [immutable]  prototype_1
+ js/prototype_1-1a4cfa94f97b24700021.js.map  4.48 KiB   prototype_1  [emitted] [dev]        prototype_1
+    js/prototype_10-8f59e04664a7884a53da.js   4.9 MiB  prototype_10  [emitted] [immutable]  prototype_10
+js/prototype_10-8f59e04664a7884a53da.js.map   4.4 MiB  prototype_10  [emitted] [dev]        prototype_10
+    js/prototype_11-6b00e6cecb7cf12e03f2.js   4.9 MiB  prototype_11  [emitted] [immutable]  prototype_11
+js/prototype_11-6b00e6cecb7cf12e03f2.js.map   4.4 MiB  prototype_11  [emitted] [dev]        prototype_11
+     js/prototype_2-28a443b985cb9dfe56d7.js   5.9 KiB   prototype_2  [emitted] [immutable]  prototype_2
+ js/prototype_2-28a443b985cb9dfe56d7.js.map  5.96 KiB   prototype_2  [emitted] [dev]        prototype_2
+     js/prototype_3-0dc8f6a0eb22ad9dda07.js  4.46 KiB   prototype_3  [emitted] [immutable]  prototype_3
+ js/prototype_3-0dc8f6a0eb22ad9dda07.js.map  4.27 KiB   prototype_3  [emitted] [dev]        prototype_3
+     js/prototype_4-6203888816ae5ccc672b.js  1.24 MiB   prototype_4  [emitted] [immutable]  prototype_4
+ js/prototype_4-6203888816ae5ccc672b.js.map  1.41 MiB   prototype_4  [emitted] [dev]        prototype_4
+     js/prototype_5-5f346c5d32bf0981e608.js  4.87 MiB   prototype_5  [emitted] [immutable]  prototype_5
+ js/prototype_5-5f346c5d32bf0981e608.js.map  4.39 MiB   prototype_5  [emitted] [dev]        prototype_5
+     js/prototype_6-cceb2a948053a36a9fac.js  4.88 MiB   prototype_6  [emitted] [immutable]  prototype_6
+ js/prototype_6-cceb2a948053a36a9fac.js.map  4.39 MiB   prototype_6  [emitted] [dev]        prototype_6
+     js/prototype_7-37f1ad758542fa1bbf52.js  4.88 MiB   prototype_7  [emitted] [immutable]  prototype_7
+ js/prototype_7-37f1ad758542fa1bbf52.js.map  4.39 MiB   prototype_7  [emitted] [dev]        prototype_7
+     js/prototype_8-848a5dfae743227d72bf.js  1.22 MiB   prototype_8  [emitted] [immutable]  prototype_8
+ js/prototype_8-848a5dfae743227d72bf.js.map   1.4 MiB   prototype_8  [emitted] [dev]        prototype_8
+     js/prototype_9-716f6e02d83a5c923ff6.js  4.89 MiB   prototype_9  [emitted] [immutable]  prototype_9
+ js/prototype_9-716f6e02d83a5c923ff6.js.map  4.39 MiB   prototype_9  [emitted] [dev]        prototype_9
+                              manifest.json  4.01 KiB                [emitted]              
+Entrypoint hello_react = js/hello_react-6fb14348d4f37ea39fe6.js js/hello_react-6fb14348d4f37ea39fe6.js.map
+Entrypoint prototype_1 = js/prototype_1-1a4cfa94f97b24700021.js js/prototype_1-1a4cfa94f97b24700021.js.map
+Entrypoint prototype_10 = js/prototype_10-8f59e04664a7884a53da.js js/prototype_10-8f59e04664a7884a53da.js.map
+Entrypoint prototype_11 = js/prototype_11-6b00e6cecb7cf12e03f2.js js/prototype_11-6b00e6cecb7cf12e03f2.js.map
+Entrypoint prototype_2 = js/prototype_2-28a443b985cb9dfe56d7.js js/prototype_2-28a443b985cb9dfe56d7.js.map
+Entrypoint prototype_3 = js/prototype_3-0dc8f6a0eb22ad9dda07.js js/prototype_3-0dc8f6a0eb22ad9dda07.js.map
+Entrypoint prototype_4 = js/prototype_4-6203888816ae5ccc672b.js js/prototype_4-6203888816ae5ccc672b.js.map
+Entrypoint prototype_5 = js/prototype_5-5f346c5d32bf0981e608.js js/prototype_5-5f346c5d32bf0981e608.js.map
+Entrypoint prototype_6 = js/prototype_6-cceb2a948053a36a9fac.js js/prototype_6-cceb2a948053a36a9fac.js.map
+Entrypoint prototype_7 = js/prototype_7-37f1ad758542fa1bbf52.js js/prototype_7-37f1ad758542fa1bbf52.js.map
+Entrypoint prototype_8 = js/prototype_8-848a5dfae743227d72bf.js js/prototype_8-848a5dfae743227d72bf.js.map
+Entrypoint prototype_9 = js/prototype_9-716f6e02d83a5c923ff6.js js/prototype_9-716f6e02d83a5c923ff6.js.map
+[./app/javascript/packs/hello_react.jsx] 1.09 KiB {hello_react} [built]
+[./app/javascript/packs/prototype_1.js] 407 bytes {prototype_1} [built]
+[./app/javascript/packs/prototype_10.jsx] 592 bytes {prototype_10} [built]
+[./app/javascript/packs/prototype_11.jsx] 592 bytes {prototype_11} [built]
+[./app/javascript/packs/prototype_2.js] 2 KiB {prototype_2} [built]
+[./app/javascript/packs/prototype_3.js] 581 bytes {prototype_3} [built]
+[./app/javascript/packs/prototype_4.jsx] 578 bytes {prototype_4} [built]
+[./app/javascript/packs/prototype_5.jsx] 578 bytes {prototype_5} [built]
+[./app/javascript/packs/prototype_6.jsx] 578 bytes {prototype_6} [built]
+[./app/javascript/packs/prototype_7.jsx] 751 bytes {prototype_7} [built]
+[./app/javascript/packs/prototype_8.jsx] 578 bytes {prototype_8} [built]
+[./app/javascript/packs/prototype_9.jsx] 589 bytes {prototype_9} [built]
+[./app/javascript/prototypes/prototype_1/utilities.js] 289 bytes {prototype_1} [built]
+[./app/javascript/prototypes/prototype_4/Container.jsx] 6.58 KiB {prototype_4} [built]
+[./app/javascript/prototypes/prototype_5/Container.jsx] 13.8 KiB {prototype_5} [built]
+    + 981 hidden modules
+
+ERROR in ./app/javascript/prototypes/prototype_8/Container.jsx
+Module build failed (from ./node_modules/babel-loader/lib/index.js):
+SyntaxError: /Users/polinamazitova/Documents/GitHub/ADC-Synth-1stModule/app/javascript/prototypes/prototype_8/Container.jsx: Unexpected token (157:9)
+
+  155 |
+  156 |
+> 157 |   export default class Container extends Component {
+      |          ^
+  158 |     constructor(props) {
+  159 |       super(props)
+  160 |     }
+    at instantiate (/Users/polinamazitova/Documents/GitHub/ADC-Synth-1stModule/node_modules/@babel/parser/lib/index.js:72:32)
+    at constructor (/Users/polinamazitova/Documents/GitHub/ADC-Synth-1stModule/node_modules/@babel/parser/lib/index.js:367:12)
+    at JSXParserMixin.raise (/Users/polinamazitova/Documents/GitHub/ADC-Synth-1stModule/node_modules/@babel/parser/lib/index.js:3678:19)
+    at JSXParserMixin.unexpected (/Users/polinamazitova/Documents/GitHub/ADC-Synth-1stModule/node_modules/@babel/parser/lib/index.js:3716:16)
+    at JSXParserMixin.parseClassMemberWithIsStatic (/Users/polinamazitova/Documents/GitHub/ADC-Synth-1stModule/node_modules/@babel/parser/lib/index.js:15871:12)
+    at JSXParserMixin.parseClassMember (/Users/polinamazitova/Documents/GitHub/ADC-Synth-1stModule/node_modules/@babel/parser/lib/index.js:15738:10)
+    at /Users/polinamazitova/Documents/GitHub/ADC-Synth-1stModule/node_modules/@babel/parser/lib/index.js:15678:14
+    at JSXParserMixin.withSmartMixTopicForbiddingContext (/Users/polinamazitova/Documents/GitHub/ADC-Synth-1stModule/node_modules/@babel/parser/lib/index.js:14462:14)
+    at JSXParserMixin.parseClassBody (/Users/polinamazitova/Documents/GitHub/ADC-Synth-1stModule/node_modules/@babel/parser/lib/index.js:15653:10)
+    at JSXParserMixin.parseClass (/Users/polinamazitova/Documents/GitHub/ADC-Synth-1stModule/node_modules/@babel/parser/lib/index.js:15627:22)
+    at JSXParserMixin.parseExportDefaultExpression (/Users/polinamazitova/Documents/GitHub/ADC-Synth-1stModule/node_modules/@babel/parser/lib/index.js:16152:19)
+    at JSXParserMixin.parseExport (/Users/polinamazitova/Documents/GitHub/ADC-Synth-1stModule/node_modules/@babel/parser/lib/index.js:16060:31)
+    at JSXParserMixin.parseStatementContent (/Users/polinamazitova/Documents/GitHub/ADC-Synth-1stModule/node_modules/@babel/parser/lib/index.js:14898:27)
+    at JSXParserMixin.parseStatement (/Users/polinamazitova/Documents/GitHub/ADC-Synth-1stModule/node_modules/@babel/parser/lib/index.js:14782:17)
+    at JSXParserMixin.parseBlockOrModuleBlockBody (/Users/polinamazitova/Documents/GitHub/ADC-Synth-1stModule/node_modules/@babel/parser/lib/index.js:15441:25)
+    at JSXParserMixin.parseBlockBody (/Users/polinamazitova/Documents/GitHub/ADC-Synth-1stModule/node_modules/@babel/parser/lib/index.js:15432:10)
+    at JSXParserMixin.parseProgram (/Users/polinamazitova/Documents/GitHub/ADC-Synth-1stModule/node_modules/@babel/parser/lib/index.js:14700:10)
+    at JSXParserMixin.parseTopLevel (/Users/polinamazitova/Documents/GitHub/ADC-Synth-1stModule/node_modules/@babel/parser/lib/index.js:14687:25)
+    at JSXParserMixin.parse (/Users/polinamazitova/Documents/GitHub/ADC-Synth-1stModule/node_modules/@babel/parser/lib/index.js:16710:10)
+    at parse (/Users/polinamazitova/Documents/GitHub/ADC-Synth-1stModule/node_modules/@babel/parser/lib/index.js:16762:38)
+    at parser (/Users/polinamazitova/Documents/GitHub/ADC-Synth-1stModule/node_modules/@babel/core/lib/parser/index.js:52:34)
+    at parser.next (<anonymous>)
+    at normalizeFile (/Users/polinamazitova/Documents/GitHub/ADC-Synth-1stModule/node_modules/@babel/core/lib/transformation/normalize-file.js:87:38)
+    at normalizeFile.next (<anonymous>)
+    at run (/Users/polinamazitova/Documents/GitHub/ADC-Synth-1stModule/node_modules/@babel/core/lib/transformation/index.js:31:50)
+    at run.next (<anonymous>)
+    at transform (/Users/polinamazitova/Documents/GitHub/ADC-Synth-1stModule/node_modules/@babel/core/lib/transform.js:29:41)
+    at transform.next (<anonymous>)
+    at step (/Users/polinamazitova/Documents/GitHub/ADC-Synth-1stModule/node_modules/gensync/index.js:261:32)
+    at /Users/polinamazitova/Documents/GitHub/ADC-Synth-1stModule/node_modules/gensync/index.js:273:13
+ @ ./app/javascript/packs/prototype_8.jsx 6:0-60 9:52-61
+
+
+warning package.json: No license field
+
+  Rendered prototypes/show.html.erb within layouts/application (Duration: 6249.7ms | Allocations: 5622)
+  Rendered layout layouts/application.html.erb (Duration: 6490.9ms | Allocations: 91686)
+Completed 200 OK in 6513ms (Views: 6495.3ms | ActiveRecord: 0.6ms | Allocations: 105958)
+
+
+Started GET "/prototypes/10" for ::1 at 2022-10-22 17:12:59 +0300
+Processing by PrototypesController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mPrototype Load (0.1ms)[0m  [1m[34mSELECT "prototypes".* FROM "prototypes" WHERE "prototypes"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/prototypes_controller.rb:63:in `set_prototype'
+  Rendering layout layouts/application.html.erb
+  Rendering prototypes/show.html.erb within layouts/application
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered prototypes/show.html.erb within layouts/application (Duration: 7.9ms | Allocations: 2990)
+  Rendered layout layouts/application.html.erb (Duration: 11.0ms | Allocations: 5638)
+Completed 200 OK in 14ms (Views: 11.5ms | ActiveRecord: 0.1ms | Allocations: 6577)
+
+
+Started GET "/prototypes/10" for ::1 at 2022-10-22 17:19:13 +0300
+Processing by PrototypesController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/prototypes_controller.rb:63:in `set_prototype'
+  [1m[36mPrototype Load (0.1ms)[0m  [1m[34mSELECT "prototypes".* FROM "prototypes" WHERE "prototypes"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/prototypes_controller.rb:63:in `set_prototype'
+  Rendering layout layouts/application.html.erb
+  Rendering prototypes/show.html.erb within layouts/application
+[Webpacker] Compiling...
+[Webpacker] Compilation failed:
+Hash: 1a85bc7de243a8a8ccc9
+Version: webpack 4.46.0
+Time: 4758ms
+Built at: 10/22/2022 5:19:18 PM
+                                      Asset      Size        Chunks                         Chunk Names
+     js/hello_react-6fb14348d4f37ea39fe6.js  1.25 MiB   hello_react  [emitted] [immutable]  hello_react
+ js/hello_react-6fb14348d4f37ea39fe6.js.map  1.44 MiB   hello_react  [emitted] [dev]        hello_react
+     js/prototype_1-1a4cfa94f97b24700021.js  5.64 KiB   prototype_1  [emitted] [immutable]  prototype_1
+ js/prototype_1-1a4cfa94f97b24700021.js.map  4.48 KiB   prototype_1  [emitted] [dev]        prototype_1
+    js/prototype_10-67876d76f47284994b96.js   4.9 MiB  prototype_10  [emitted] [immutable]  prototype_10
+js/prototype_10-67876d76f47284994b96.js.map   4.4 MiB  prototype_10  [emitted] [dev]        prototype_10
+    js/prototype_11-6b00e6cecb7cf12e03f2.js   4.9 MiB  prototype_11  [emitted] [immutable]  prototype_11
+js/prototype_11-6b00e6cecb7cf12e03f2.js.map   4.4 MiB  prototype_11  [emitted] [dev]        prototype_11
+     js/prototype_2-28a443b985cb9dfe56d7.js   5.9 KiB   prototype_2  [emitted] [immutable]  prototype_2
+ js/prototype_2-28a443b985cb9dfe56d7.js.map  5.96 KiB   prototype_2  [emitted] [dev]        prototype_2
+     js/prototype_3-0dc8f6a0eb22ad9dda07.js  4.46 KiB   prototype_3  [emitted] [immutable]  prototype_3
+ js/prototype_3-0dc8f6a0eb22ad9dda07.js.map  4.27 KiB   prototype_3  [emitted] [dev]        prototype_3
+     js/prototype_4-6203888816ae5ccc672b.js  1.24 MiB   prototype_4  [emitted] [immutable]  prototype_4
+ js/prototype_4-6203888816ae5ccc672b.js.map  1.41 MiB   prototype_4  [emitted] [dev]        prototype_4
+     js/prototype_5-5f346c5d32bf0981e608.js  4.87 MiB   prototype_5  [emitted] [immutable]  prototype_5
+ js/prototype_5-5f346c5d32bf0981e608.js.map  4.39 MiB   prototype_5  [emitted] [dev]        prototype_5
+     js/prototype_6-cceb2a948053a36a9fac.js  4.88 MiB   prototype_6  [emitted] [immutable]  prototype_6
+ js/prototype_6-cceb2a948053a36a9fac.js.map  4.39 MiB   prototype_6  [emitted] [dev]        prototype_6
+     js/prototype_7-37f1ad758542fa1bbf52.js  4.88 MiB   prototype_7  [emitted] [immutable]  prototype_7
+ js/prototype_7-37f1ad758542fa1bbf52.js.map  4.39 MiB   prototype_7  [emitted] [dev]        prototype_7
+     js/prototype_8-848a5dfae743227d72bf.js  1.22 MiB   prototype_8  [emitted] [immutable]  prototype_8
+ js/prototype_8-848a5dfae743227d72bf.js.map   1.4 MiB   prototype_8  [emitted] [dev]        prototype_8
+     js/prototype_9-716f6e02d83a5c923ff6.js  4.89 MiB   prototype_9  [emitted] [immutable]  prototype_9
+ js/prototype_9-716f6e02d83a5c923ff6.js.map  4.39 MiB   prototype_9  [emitted] [dev]        prototype_9
+                              manifest.json  4.01 KiB                [emitted]              
+Entrypoint hello_react = js/hello_react-6fb14348d4f37ea39fe6.js js/hello_react-6fb14348d4f37ea39fe6.js.map
+Entrypoint prototype_1 = js/prototype_1-1a4cfa94f97b24700021.js js/prototype_1-1a4cfa94f97b24700021.js.map
+Entrypoint prototype_10 = js/prototype_10-67876d76f47284994b96.js js/prototype_10-67876d76f47284994b96.js.map
+Entrypoint prototype_11 = js/prototype_11-6b00e6cecb7cf12e03f2.js js/prototype_11-6b00e6cecb7cf12e03f2.js.map
+Entrypoint prototype_2 = js/prototype_2-28a443b985cb9dfe56d7.js js/prototype_2-28a443b985cb9dfe56d7.js.map
+Entrypoint prototype_3 = js/prototype_3-0dc8f6a0eb22ad9dda07.js js/prototype_3-0dc8f6a0eb22ad9dda07.js.map
+Entrypoint prototype_4 = js/prototype_4-6203888816ae5ccc672b.js js/prototype_4-6203888816ae5ccc672b.js.map
+Entrypoint prototype_5 = js/prototype_5-5f346c5d32bf0981e608.js js/prototype_5-5f346c5d32bf0981e608.js.map
+Entrypoint prototype_6 = js/prototype_6-cceb2a948053a36a9fac.js js/prototype_6-cceb2a948053a36a9fac.js.map
+Entrypoint prototype_7 = js/prototype_7-37f1ad758542fa1bbf52.js js/prototype_7-37f1ad758542fa1bbf52.js.map
+Entrypoint prototype_8 = js/prototype_8-848a5dfae743227d72bf.js js/prototype_8-848a5dfae743227d72bf.js.map
+Entrypoint prototype_9 = js/prototype_9-716f6e02d83a5c923ff6.js js/prototype_9-716f6e02d83a5c923ff6.js.map
+[./app/javascript/packs/hello_react.jsx] 1.09 KiB {hello_react} [built]
+[./app/javascript/packs/prototype_1.js] 407 bytes {prototype_1} [built]
+[./app/javascript/packs/prototype_10.jsx] 592 bytes {prototype_10} [built]
+[./app/javascript/packs/prototype_11.jsx] 592 bytes {prototype_11} [built]
+[./app/javascript/packs/prototype_2.js] 2 KiB {prototype_2} [built]
+[./app/javascript/packs/prototype_3.js] 581 bytes {prototype_3} [built]
+[./app/javascript/packs/prototype_4.jsx] 578 bytes {prototype_4} [built]
+[./app/javascript/packs/prototype_5.jsx] 578 bytes {prototype_5} [built]
+[./app/javascript/packs/prototype_6.jsx] 578 bytes {prototype_6} [built]
+[./app/javascript/packs/prototype_7.jsx] 751 bytes {prototype_7} [built]
+[./app/javascript/packs/prototype_8.jsx] 578 bytes {prototype_8} [built]
+[./app/javascript/packs/prototype_9.jsx] 589 bytes {prototype_9} [built]
+[./app/javascript/prototypes/prototype_1/utilities.js] 289 bytes {prototype_1} [built]
+[./app/javascript/prototypes/prototype_4/Container.jsx] 6.58 KiB {prototype_4} [built]
+[./app/javascript/prototypes/prototype_5/Container.jsx] 13.8 KiB {prototype_5} [built]
+    + 981 hidden modules
+
+ERROR in ./app/javascript/prototypes/prototype_8/Container.jsx
+Module build failed (from ./node_modules/babel-loader/lib/index.js):
+SyntaxError: /Users/polinamazitova/Documents/GitHub/ADC-Synth-1stModule/app/javascript/prototypes/prototype_8/Container.jsx: Unexpected token (157:9)
+
+  155 |
+  156 |
+> 157 |   export default class Container extends Component {
+      |          ^
+  158 |     constructor(props) {
+  159 |       super(props)
+  160 |     }
+    at instantiate (/Users/polinamazitova/Documents/GitHub/ADC-Synth-1stModule/node_modules/@babel/parser/lib/index.js:72:32)
+    at constructor (/Users/polinamazitova/Documents/GitHub/ADC-Synth-1stModule/node_modules/@babel/parser/lib/index.js:367:12)
+    at JSXParserMixin.raise (/Users/polinamazitova/Documents/GitHub/ADC-Synth-1stModule/node_modules/@babel/parser/lib/index.js:3678:19)
+    at JSXParserMixin.unexpected (/Users/polinamazitova/Documents/GitHub/ADC-Synth-1stModule/node_modules/@babel/parser/lib/index.js:3716:16)
+    at JSXParserMixin.parseClassMemberWithIsStatic (/Users/polinamazitova/Documents/GitHub/ADC-Synth-1stModule/node_modules/@babel/parser/lib/index.js:15871:12)
+    at JSXParserMixin.parseClassMember (/Users/polinamazitova/Documents/GitHub/ADC-Synth-1stModule/node_modules/@babel/parser/lib/index.js:15738:10)
+    at /Users/polinamazitova/Documents/GitHub/ADC-Synth-1stModule/node_modules/@babel/parser/lib/index.js:15678:14
+    at JSXParserMixin.withSmartMixTopicForbiddingContext (/Users/polinamazitova/Documents/GitHub/ADC-Synth-1stModule/node_modules/@babel/parser/lib/index.js:14462:14)
+    at JSXParserMixin.parseClassBody (/Users/polinamazitova/Documents/GitHub/ADC-Synth-1stModule/node_modules/@babel/parser/lib/index.js:15653:10)
+    at JSXParserMixin.parseClass (/Users/polinamazitova/Documents/GitHub/ADC-Synth-1stModule/node_modules/@babel/parser/lib/index.js:15627:22)
+    at JSXParserMixin.parseExportDefaultExpression (/Users/polinamazitova/Documents/GitHub/ADC-Synth-1stModule/node_modules/@babel/parser/lib/index.js:16152:19)
+    at JSXParserMixin.parseExport (/Users/polinamazitova/Documents/GitHub/ADC-Synth-1stModule/node_modules/@babel/parser/lib/index.js:16060:31)
+    at JSXParserMixin.parseStatementContent (/Users/polinamazitova/Documents/GitHub/ADC-Synth-1stModule/node_modules/@babel/parser/lib/index.js:14898:27)
+    at JSXParserMixin.parseStatement (/Users/polinamazitova/Documents/GitHub/ADC-Synth-1stModule/node_modules/@babel/parser/lib/index.js:14782:17)
+    at JSXParserMixin.parseBlockOrModuleBlockBody (/Users/polinamazitova/Documents/GitHub/ADC-Synth-1stModule/node_modules/@babel/parser/lib/index.js:15441:25)
+    at JSXParserMixin.parseBlockBody (/Users/polinamazitova/Documents/GitHub/ADC-Synth-1stModule/node_modules/@babel/parser/lib/index.js:15432:10)
+    at JSXParserMixin.parseProgram (/Users/polinamazitova/Documents/GitHub/ADC-Synth-1stModule/node_modules/@babel/parser/lib/index.js:14700:10)
+    at JSXParserMixin.parseTopLevel (/Users/polinamazitova/Documents/GitHub/ADC-Synth-1stModule/node_modules/@babel/parser/lib/index.js:14687:25)
+    at JSXParserMixin.parse (/Users/polinamazitova/Documents/GitHub/ADC-Synth-1stModule/node_modules/@babel/parser/lib/index.js:16710:10)
+    at parse (/Users/polinamazitova/Documents/GitHub/ADC-Synth-1stModule/node_modules/@babel/parser/lib/index.js:16762:38)
+    at parser (/Users/polinamazitova/Documents/GitHub/ADC-Synth-1stModule/node_modules/@babel/core/lib/parser/index.js:52:34)
+    at parser.next (<anonymous>)
+    at normalizeFile (/Users/polinamazitova/Documents/GitHub/ADC-Synth-1stModule/node_modules/@babel/core/lib/transformation/normalize-file.js:87:38)
+    at normalizeFile.next (<anonymous>)
+    at run (/Users/polinamazitova/Documents/GitHub/ADC-Synth-1stModule/node_modules/@babel/core/lib/transformation/index.js:31:50)
+    at run.next (<anonymous>)
+    at transform (/Users/polinamazitova/Documents/GitHub/ADC-Synth-1stModule/node_modules/@babel/core/lib/transform.js:29:41)
+    at transform.next (<anonymous>)
+    at step (/Users/polinamazitova/Documents/GitHub/ADC-Synth-1stModule/node_modules/gensync/index.js:261:32)
+    at /Users/polinamazitova/Documents/GitHub/ADC-Synth-1stModule/node_modules/gensync/index.js:273:13
+ @ ./app/javascript/packs/prototype_8.jsx 6:0-60 9:52-61
+
+
+warning package.json: No license field
+
+  Rendered prototypes/show.html.erb within layouts/application (Duration: 6074.6ms | Allocations: 4801)
+  Rendered layout layouts/application.html.erb (Duration: 6079.7ms | Allocations: 7399)
+Completed 200 OK in 6084ms (Views: 6080.3ms | ActiveRecord: 0.4ms | Allocations: 8775)
+
+
+Started GET "/prototypes/10" for ::1 at 2022-10-22 17:20:19 +0300
+Processing by PrototypesController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mPrototype Load (0.2ms)[0m  [1m[34mSELECT "prototypes".* FROM "prototypes" WHERE "prototypes"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/prototypes_controller.rb:63:in `set_prototype'
+  Rendering layout layouts/application.html.erb
+  Rendering prototypes/show.html.erb within layouts/application
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered prototypes/show.html.erb within layouts/application (Duration: 9.6ms | Allocations: 2946)
+  Rendered layout layouts/application.html.erb (Duration: 44.6ms | Allocations: 19215)
+Completed 200 OK in 48ms (Views: 45.4ms | ActiveRecord: 0.2ms | Allocations: 20031)
+
+
+Started GET "/prototypes/10" for ::1 at 2022-10-22 17:20:59 +0300
+Processing by PrototypesController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mPrototype Load (0.1ms)[0m  [1m[34mSELECT "prototypes".* FROM "prototypes" WHERE "prototypes"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/prototypes_controller.rb:63:in `set_prototype'
+  Rendering layout layouts/application.html.erb
+  Rendering prototypes/show.html.erb within layouts/application
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered prototypes/show.html.erb within layouts/application (Duration: 6.2ms | Allocations: 2947)
+  Rendered layout layouts/application.html.erb (Duration: 79.9ms | Allocations: 19578)
+Completed 200 OK in 83ms (Views: 80.5ms | ActiveRecord: 0.1ms | Allocations: 20394)
+
+
+Started GET "/prototypes/10" for ::1 at 2022-10-22 17:21:07 +0300
+Processing by PrototypesController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mPrototype Load (0.1ms)[0m  [1m[34mSELECT "prototypes".* FROM "prototypes" WHERE "prototypes"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/prototypes_controller.rb:63:in `set_prototype'
+  Rendering layout layouts/application.html.erb
+  Rendering prototypes/show.html.erb within layouts/application
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered prototypes/show.html.erb within layouts/application (Duration: 9.4ms | Allocations: 2946)
+  Rendered layout layouts/application.html.erb (Duration: 32.5ms | Allocations: 5542)
+Completed 200 OK in 36ms (Views: 33.0ms | ActiveRecord: 0.1ms | Allocations: 6345)
+
+
+Started GET "/prototypes/10" for ::1 at 2022-10-22 17:21:17 +0300
+Processing by PrototypesController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mPrototype Load (0.1ms)[0m  [1m[34mSELECT "prototypes".* FROM "prototypes" WHERE "prototypes"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/prototypes_controller.rb:63:in `set_prototype'
+  Rendering layout layouts/application.html.erb
+  Rendering prototypes/show.html.erb within layouts/application
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered prototypes/show.html.erb within layouts/application (Duration: 7.2ms | Allocations: 2946)
+  Rendered layout layouts/application.html.erb (Duration: 11.9ms | Allocations: 5596)
+Completed 200 OK in 15ms (Views: 12.4ms | ActiveRecord: 0.1ms | Allocations: 6398)
+
+
+Started GET "/prototypes/10" for ::1 at 2022-10-22 17:21:55 +0300
+Processing by PrototypesController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mPrototype Load (0.1ms)[0m  [1m[34mSELECT "prototypes".* FROM "prototypes" WHERE "prototypes"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/prototypes_controller.rb:63:in `set_prototype'
+  Rendering layout layouts/application.html.erb
+  Rendering prototypes/show.html.erb within layouts/application
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered prototypes/show.html.erb within layouts/application (Duration: 7.6ms | Allocations: 2946)
+  Rendered layout layouts/application.html.erb (Duration: 11.7ms | Allocations: 5538)
+Completed 200 OK in 15ms (Views: 12.3ms | ActiveRecord: 0.1ms | Allocations: 6339)
+
+
+Started GET "/prototypes/10" for ::1 at 2022-10-22 17:22:44 +0300
+Processing by PrototypesController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mPrototype Load (0.1ms)[0m  [1m[34mSELECT "prototypes".* FROM "prototypes" WHERE "prototypes"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/prototypes_controller.rb:63:in `set_prototype'
+  Rendering layout layouts/application.html.erb
+  Rendering prototypes/show.html.erb within layouts/application
+[Webpacker] Compiling...
+[Webpacker] Compilation failed:
+Hash: bfc1bf34bb4f981006de
+Version: webpack 4.46.0
+Time: 3982ms
+Built at: 10/22/2022 5:22:49 PM
+                                      Asset      Size        Chunks                         Chunk Names
+     js/hello_react-6fb14348d4f37ea39fe6.js  1.25 MiB   hello_react  [emitted] [immutable]  hello_react
+ js/hello_react-6fb14348d4f37ea39fe6.js.map  1.44 MiB   hello_react  [emitted] [dev]        hello_react
+     js/prototype_1-1a4cfa94f97b24700021.js  5.64 KiB   prototype_1  [emitted] [immutable]  prototype_1
+ js/prototype_1-1a4cfa94f97b24700021.js.map  4.48 KiB   prototype_1  [emitted] [dev]        prototype_1
+    js/prototype_10-1ec128263bf8c8f07676.js   4.9 MiB  prototype_10  [emitted] [immutable]  prototype_10
+js/prototype_10-1ec128263bf8c8f07676.js.map   4.4 MiB  prototype_10  [emitted] [dev]        prototype_10
+    js/prototype_11-6b00e6cecb7cf12e03f2.js   4.9 MiB  prototype_11  [emitted] [immutable]  prototype_11
+js/prototype_11-6b00e6cecb7cf12e03f2.js.map   4.4 MiB  prototype_11  [emitted] [dev]        prototype_11
+     js/prototype_2-28a443b985cb9dfe56d7.js   5.9 KiB   prototype_2  [emitted] [immutable]  prototype_2
+ js/prototype_2-28a443b985cb9dfe56d7.js.map  5.96 KiB   prototype_2  [emitted] [dev]        prototype_2
+     js/prototype_3-0dc8f6a0eb22ad9dda07.js  4.46 KiB   prototype_3  [emitted] [immutable]  prototype_3
+ js/prototype_3-0dc8f6a0eb22ad9dda07.js.map  4.27 KiB   prototype_3  [emitted] [dev]        prototype_3
+     js/prototype_4-6203888816ae5ccc672b.js  1.24 MiB   prototype_4  [emitted] [immutable]  prototype_4
+ js/prototype_4-6203888816ae5ccc672b.js.map  1.41 MiB   prototype_4  [emitted] [dev]        prototype_4
+     js/prototype_5-5f346c5d32bf0981e608.js  4.87 MiB   prototype_5  [emitted] [immutable]  prototype_5
+ js/prototype_5-5f346c5d32bf0981e608.js.map  4.39 MiB   prototype_5  [emitted] [dev]        prototype_5
+     js/prototype_6-cceb2a948053a36a9fac.js  4.88 MiB   prototype_6  [emitted] [immutable]  prototype_6
+ js/prototype_6-cceb2a948053a36a9fac.js.map  4.39 MiB   prototype_6  [emitted] [dev]        prototype_6
+     js/prototype_7-37f1ad758542fa1bbf52.js  4.88 MiB   prototype_7  [emitted] [immutable]  prototype_7
+ js/prototype_7-37f1ad758542fa1bbf52.js.map  4.39 MiB   prototype_7  [emitted] [dev]        prototype_7
+     js/prototype_8-848a5dfae743227d72bf.js  1.22 MiB   prototype_8  [emitted] [immutable]  prototype_8
+ js/prototype_8-848a5dfae743227d72bf.js.map   1.4 MiB   prototype_8  [emitted] [dev]        prototype_8
+     js/prototype_9-716f6e02d83a5c923ff6.js  4.89 MiB   prototype_9  [emitted] [immutable]  prototype_9
+ js/prototype_9-716f6e02d83a5c923ff6.js.map  4.39 MiB   prototype_9  [emitted] [dev]        prototype_9
+                              manifest.json  4.01 KiB                [emitted]              
+Entrypoint hello_react = js/hello_react-6fb14348d4f37ea39fe6.js js/hello_react-6fb14348d4f37ea39fe6.js.map
+Entrypoint prototype_1 = js/prototype_1-1a4cfa94f97b24700021.js js/prototype_1-1a4cfa94f97b24700021.js.map
+Entrypoint prototype_10 = js/prototype_10-1ec128263bf8c8f07676.js js/prototype_10-1ec128263bf8c8f07676.js.map
+Entrypoint prototype_11 = js/prototype_11-6b00e6cecb7cf12e03f2.js js/prototype_11-6b00e6cecb7cf12e03f2.js.map
+Entrypoint prototype_2 = js/prototype_2-28a443b985cb9dfe56d7.js js/prototype_2-28a443b985cb9dfe56d7.js.map
+Entrypoint prototype_3 = js/prototype_3-0dc8f6a0eb22ad9dda07.js js/prototype_3-0dc8f6a0eb22ad9dda07.js.map
+Entrypoint prototype_4 = js/prototype_4-6203888816ae5ccc672b.js js/prototype_4-6203888816ae5ccc672b.js.map
+Entrypoint prototype_5 = js/prototype_5-5f346c5d32bf0981e608.js js/prototype_5-5f346c5d32bf0981e608.js.map
+Entrypoint prototype_6 = js/prototype_6-cceb2a948053a36a9fac.js js/prototype_6-cceb2a948053a36a9fac.js.map
+Entrypoint prototype_7 = js/prototype_7-37f1ad758542fa1bbf52.js js/prototype_7-37f1ad758542fa1bbf52.js.map
+Entrypoint prototype_8 = js/prototype_8-848a5dfae743227d72bf.js js/prototype_8-848a5dfae743227d72bf.js.map
+Entrypoint prototype_9 = js/prototype_9-716f6e02d83a5c923ff6.js js/prototype_9-716f6e02d83a5c923ff6.js.map
+[./app/javascript/packs/hello_react.jsx] 1.09 KiB {hello_react} [built]
+[./app/javascript/packs/prototype_1.js] 407 bytes {prototype_1} [built]
+[./app/javascript/packs/prototype_10.jsx] 592 bytes {prototype_10} [built]
+[./app/javascript/packs/prototype_11.jsx] 592 bytes {prototype_11} [built]
+[./app/javascript/packs/prototype_2.js] 2 KiB {prototype_2} [built]
+[./app/javascript/packs/prototype_3.js] 581 bytes {prototype_3} [built]
+[./app/javascript/packs/prototype_4.jsx] 578 bytes {prototype_4} [built]
+[./app/javascript/packs/prototype_5.jsx] 578 bytes {prototype_5} [built]
+[./app/javascript/packs/prototype_6.jsx] 578 bytes {prototype_6} [built]
+[./app/javascript/packs/prototype_7.jsx] 751 bytes {prototype_7} [built]
+[./app/javascript/packs/prototype_8.jsx] 578 bytes {prototype_8} [built]
+[./app/javascript/packs/prototype_9.jsx] 589 bytes {prototype_9} [built]
+[./app/javascript/prototypes/prototype_1/utilities.js] 289 bytes {prototype_1} [built]
+[./app/javascript/prototypes/prototype_4/Container.jsx] 6.58 KiB {prototype_4} [built]
+[./app/javascript/prototypes/prototype_5/Container.jsx] 13.8 KiB {prototype_5} [built]
+    + 981 hidden modules
+
+ERROR in ./app/javascript/prototypes/prototype_8/Container.jsx
+Module build failed (from ./node_modules/babel-loader/lib/index.js):
+SyntaxError: /Users/polinamazitova/Documents/GitHub/ADC-Synth-1stModule/app/javascript/prototypes/prototype_8/Container.jsx: Unexpected token (157:9)
+
+  155 |
+  156 |
+> 157 |   export default class Container extends Component {
+      |          ^
+  158 |     constructor(props) {
+  159 |       super(props)
+  160 |     }
+    at instantiate (/Users/polinamazitova/Documents/GitHub/ADC-Synth-1stModule/node_modules/@babel/parser/lib/index.js:72:32)
+    at constructor (/Users/polinamazitova/Documents/GitHub/ADC-Synth-1stModule/node_modules/@babel/parser/lib/index.js:367:12)
+    at JSXParserMixin.raise (/Users/polinamazitova/Documents/GitHub/ADC-Synth-1stModule/node_modules/@babel/parser/lib/index.js:3678:19)
+    at JSXParserMixin.unexpected (/Users/polinamazitova/Documents/GitHub/ADC-Synth-1stModule/node_modules/@babel/parser/lib/index.js:3716:16)
+    at JSXParserMixin.parseClassMemberWithIsStatic (/Users/polinamazitova/Documents/GitHub/ADC-Synth-1stModule/node_modules/@babel/parser/lib/index.js:15871:12)
+    at JSXParserMixin.parseClassMember (/Users/polinamazitova/Documents/GitHub/ADC-Synth-1stModule/node_modules/@babel/parser/lib/index.js:15738:10)
+    at /Users/polinamazitova/Documents/GitHub/ADC-Synth-1stModule/node_modules/@babel/parser/lib/index.js:15678:14
+    at JSXParserMixin.withSmartMixTopicForbiddingContext (/Users/polinamazitova/Documents/GitHub/ADC-Synth-1stModule/node_modules/@babel/parser/lib/index.js:14462:14)
+    at JSXParserMixin.parseClassBody (/Users/polinamazitova/Documents/GitHub/ADC-Synth-1stModule/node_modules/@babel/parser/lib/index.js:15653:10)
+    at JSXParserMixin.parseClass (/Users/polinamazitova/Documents/GitHub/ADC-Synth-1stModule/node_modules/@babel/parser/lib/index.js:15627:22)
+    at JSXParserMixin.parseExportDefaultExpression (/Users/polinamazitova/Documents/GitHub/ADC-Synth-1stModule/node_modules/@babel/parser/lib/index.js:16152:19)
+    at JSXParserMixin.parseExport (/Users/polinamazitova/Documents/GitHub/ADC-Synth-1stModule/node_modules/@babel/parser/lib/index.js:16060:31)
+    at JSXParserMixin.parseStatementContent (/Users/polinamazitova/Documents/GitHub/ADC-Synth-1stModule/node_modules/@babel/parser/lib/index.js:14898:27)
+    at JSXParserMixin.parseStatement (/Users/polinamazitova/Documents/GitHub/ADC-Synth-1stModule/node_modules/@babel/parser/lib/index.js:14782:17)
+    at JSXParserMixin.parseBlockOrModuleBlockBody (/Users/polinamazitova/Documents/GitHub/ADC-Synth-1stModule/node_modules/@babel/parser/lib/index.js:15441:25)
+    at JSXParserMixin.parseBlockBody (/Users/polinamazitova/Documents/GitHub/ADC-Synth-1stModule/node_modules/@babel/parser/lib/index.js:15432:10)
+    at JSXParserMixin.parseProgram (/Users/polinamazitova/Documents/GitHub/ADC-Synth-1stModule/node_modules/@babel/parser/lib/index.js:14700:10)
+    at JSXParserMixin.parseTopLevel (/Users/polinamazitova/Documents/GitHub/ADC-Synth-1stModule/node_modules/@babel/parser/lib/index.js:14687:25)
+    at JSXParserMixin.parse (/Users/polinamazitova/Documents/GitHub/ADC-Synth-1stModule/node_modules/@babel/parser/lib/index.js:16710:10)
+    at parse (/Users/polinamazitova/Documents/GitHub/ADC-Synth-1stModule/node_modules/@babel/parser/lib/index.js:16762:38)
+    at parser (/Users/polinamazitova/Documents/GitHub/ADC-Synth-1stModule/node_modules/@babel/core/lib/parser/index.js:52:34)
+    at parser.next (<anonymous>)
+    at normalizeFile (/Users/polinamazitova/Documents/GitHub/ADC-Synth-1stModule/node_modules/@babel/core/lib/transformation/normalize-file.js:87:38)
+    at normalizeFile.next (<anonymous>)
+    at run (/Users/polinamazitova/Documents/GitHub/ADC-Synth-1stModule/node_modules/@babel/core/lib/transformation/index.js:31:50)
+    at run.next (<anonymous>)
+    at transform (/Users/polinamazitova/Documents/GitHub/ADC-Synth-1stModule/node_modules/@babel/core/lib/transform.js:29:41)
+    at transform.next (<anonymous>)
+    at step (/Users/polinamazitova/Documents/GitHub/ADC-Synth-1stModule/node_modules/gensync/index.js:261:32)
+    at /Users/polinamazitova/Documents/GitHub/ADC-Synth-1stModule/node_modules/gensync/index.js:273:13
+ @ ./app/javascript/packs/prototype_8.jsx 6:0-60 9:52-61
+
+
+warning package.json: No license field
+
+  Rendered prototypes/show.html.erb within layouts/application (Duration: 5350.7ms | Allocations: 4759)
+  Rendered layout layouts/application.html.erb (Duration: 5354.1ms | Allocations: 7356)
+Completed 200 OK in 5358ms (Views: 5354.9ms | ActiveRecord: 0.1ms | Allocations: 8158)
+
+
+Started GET "/prototypes/10" for ::1 at 2022-10-22 17:23:10 +0300
+Processing by PrototypesController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mPrototype Load (0.1ms)[0m  [1m[34mSELECT "prototypes".* FROM "prototypes" WHERE "prototypes"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/prototypes_controller.rb:63:in `set_prototype'
+  Rendering layout layouts/application.html.erb
+  Rendering prototypes/show.html.erb within layouts/application
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered prototypes/show.html.erb within layouts/application (Duration: 7.6ms | Allocations: 2946)
+  Rendered layout layouts/application.html.erb (Duration: 10.6ms | Allocations: 5554)
+Completed 200 OK in 14ms (Views: 11.1ms | ActiveRecord: 0.1ms | Allocations: 6355)
+
+

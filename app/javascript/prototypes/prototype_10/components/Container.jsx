@@ -174,7 +174,7 @@ export default class Container extends Component {
           step={0.01}
           value={bassSettings.chorus.wet}
           property="chorusWet"
-          handleChange={this.handleValueChange}
+          handleChange={this.handleBassValueChange}
         />
         <SC_Slider
           name="Delay Wet"
@@ -183,10 +183,8 @@ export default class Container extends Component {
           step={0.01}
           value={bassSettings.pingPongDelay.wet}
           property="pingPongDelayWet"
-          handleChange={this.handleValueChange}
+          handleChange={this.handleBassValueChange}
         />
-
-
       </div>
     )
   }
