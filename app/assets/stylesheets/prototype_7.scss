@@ -1,0 +1,62 @@
+.prototype_body_7 {
+  background: var(--medium-grey);
+}
+
+#prototype_7 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  margin: auto;
+  $button-colour: #D1442F;
+  $button-colour-light: lighten($button-colour, 15%);
+  $button-colour-lightest: lighten($button-colour, 30%);
+  $button-on-colour: adjust-hue($button-colour, 180);
+
+  body {
+    background-color: #F44336;
+    transition: 2s;
+  }
+
+  .synth-button {
+    height: 80px;
+    width: 80px;
+    background: $button-colour;
+    margin: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.2s;
+
+    &:hover {
+      background: $button-colour-light;
+    }
+
+    &:active {
+      background: $button-colour-lightest;
+    }
+  }
+
+  .synth-button-active {
+    background: $button-on-colour;
+  }
+
+  .button-row {
+    display: flex;
+  }
+
+  .active-row div {
+    background: $button-colour-light;
+  }
+
+  .container {
+    display: flex;
+  }
+
+  .spiel {
+    float: right;
+    letter-spacing: 3px;
+    padding: 10px;
+    font-size: 1.5em;
+    color: $button-colour;
+  }
+}
