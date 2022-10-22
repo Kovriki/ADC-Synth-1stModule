@@ -108,7 +108,7 @@ const sequence = {
       noteName: 'F4',
       duration: '4n',
       velocity: 1
-    }
+    },
     ////
     ////
     {

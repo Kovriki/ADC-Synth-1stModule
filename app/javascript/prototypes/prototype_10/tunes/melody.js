@@ -1,5 +1,5 @@
 const synth = {
-  volume: -30,
+  volume: -50,
   detune: 0,
   portamento: 0.05,
   envelope: {

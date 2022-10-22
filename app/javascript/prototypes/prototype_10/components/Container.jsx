@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 
 import * as bassSettings from '../tunes/bass.js'
 import * as melodySettings from '../tunes/melody.js'
+import * as finalfSettings from '../tunes/finalf.js'
 
 
 import ToneSynth from '../modules/ToneSynth'
@@ -17,17 +18,22 @@ let melodySynth
 let melodyChorus
 let melodyPingPongDelay
 
+let finalfSynth
+let finalfChorus
+let finalfPingPongDelay
+
 export default class Container extends Component {
   constructor(props) {
     super(props)
       this.state = {
         bassSettings,
-        melodySettings
+        melodySettings,
+        finalfSettings
       }
   }
 
   handleStart = () => {
-    const { bassSettings, melodySettings } = this.state
+    const { bassSettings, melodySettings, finalfSettings } = this.state
     //
     //
     bassSynth = new Tone.Synth(bassSettings.synth)
@@ -69,6 +75,27 @@ export default class Container extends Component {
     melodyPart.loopEnd = melodySettings.sequence.duration
     melodyPart.loop = true
     //
+    //
+
+    finalfSynth = new Tone.Synth(finalfSettings.synth)
+    finalfChorus = new Tone.Chorus(finalfSettings.chorus).start()
+    finalfPingPongDelay = new Tone.PingPongDelay(
+      finalfSettings.pingPongDelay
+    ).toDestination()
+    finalfSynth.chain(finalfChorus, finalfPingPongDelay)
+
+    const finalfPart = new Tone.Part((time, note) => {
+      finalfSynth.triggerAttackRelease(
+        note.noteName,
+        note.duration,
+        time,
+        note.velocity
+      )
+    }, finalfSettings.sequence.steps).start(0)
+    finalfPart.loopEnd = finalfSettings.sequence.duration
+    finalfPart.loop = true
+    //
+
     //
     Tone.Transport.start()
   }
@@ -139,9 +166,46 @@ export default class Container extends Component {
     })
   }
 
+  ////
+
+
+    handleFinalfValueChange = (property, value) => {
+      const { finalfSettings } = this.state
+
+      if (property === 'synthType') {
+        finalfSynth.oscillator.type = value
+        finalfSettings.synth.oscillator.type = value
+
+      } else if (property === 'synthEnvelopeAttack') {
+        finalfSynth.envelope.attack = value
+        finalfSettings.synth.envelope.attack = value
+      } else if (property === 'synthEnvelopeDecay') {
+        finalfSynth.envelope.decay = value
+        finalfSettings.synth.envelope.decay = value
+      } else if (property === 'synthEnvelopeSustain') {
+        finalfSynth.envelope.sustain = value
+        finalfSettings.synth.envelope.sustain = value
+      } else if (property === 'synthEnvelopeRelease') {
+        finalfSynth.envelope.release = value
+        finalfSettings.synth.envelope.release = value
+
+      } else if (property === 'pingPongDelayWet') {
+        finalfPingPongDelay.wet.value = value
+        finalfSettings.pingPongDelay.wet = value
+      } else if (property === 'chorusWet') {
+        finalfChorus.wet.value = value
+        finalfSettings.chorus.wet = value
+      }
+
+      this.setState({
+        finalfSettings
+      })
+    }
+    ////
+
 
   render() {
-    const { bassSettings, melodySettings } = this.state
+    const { bassSettings, melodySettings, finalfSettings  } = this.state
 
     return (
       <div className="Container">
@@ -158,6 +222,12 @@ export default class Container extends Component {
         <ToneSynth
         settings = {melodySettings}
         handleValueChange = {this.handleMelodyValueChange}
+        />
+
+        <p>Final Fantacy</p>
+        <ToneSynth
+        settings = {finalfSettings}
+        handleValueChange = {this.handleFinalfValueChange}
         />
 
       </div>
