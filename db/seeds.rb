@@ -34,6 +34,12 @@
   },
   {
     name: '12) Waveform'
+  },
+  {
+    name: '13) Metal'
+  },
+  {
+    name: '13) My synth with UI'
   }
 ]
 

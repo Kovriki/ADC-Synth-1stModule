@@ -8,6 +8,7 @@ import SC_Slider from './SC_Slider'
 let synth
 let chorus
 let pingPongDelay
+let distortionNode
 
 export default class Container extends Component {
   constructor(props) {
@@ -47,24 +48,30 @@ export default class Container extends Component {
 
     const pingPongDelaySettings = { wet: 0.2, delayTime: 0.25, maxDelayTime: 1 }
 
+    const distortionSettings = {
+      wet: 0,
+      distortion: 1,
+      oversample: '4x'
+    }
+
     this.state = {
       synthSettings,
       chorusSettings,
-      pingPongDelaySettings
+      pingPongDelaySettings,
+      distortionSettings
     }
+
   }
 
   handleStart = () => {
-    const { synthSettings, chorusSettings, pingPongDelaySettings } = this.state
+    const { synthSettings, chorusSettings, pingPongDelaySettings, distortionSettings} = this.state
 
     synth = new Tone.Synth(synthSettings)
     chorus = new Tone.Chorus(chorusSettings).start()
+    pingPongDelay = new Tone.PingPongDelay(pingPongDelaySettings)
+    distortionNode = new Tone.Distortion(distortionSettings).toDestination()
 
-    pingPongDelay = new Tone.PingPongDelay(
-      pingPongDelaySettings
-    ).toDestination()
-
-    synth.chain(chorus, pingPongDelay)
+    synth.chain(chorus, pingPongDelay, distortionNode)
 
     const sequence = [
       {
@@ -168,7 +175,7 @@ export default class Container extends Component {
   }
 
   handleValueChange = (property, value) => {
-    const { synthSettings, chorusSettings, pingPongDelaySettings } = this.state
+    const {synthSettings, chorusSettings, pingPongDelaySettings, distortionSettings} = this.state
 
     if (property === 'synthType') {
       synth.oscillator.type = value
@@ -176,20 +183,24 @@ export default class Container extends Component {
     } else if (property === 'pingPongDelayWet') {
       pingPongDelay.wet.value = value
       pingPongDelaySettings.wet = value
-    } else if (property === 'chorusWet') {
+    }  else if (property === 'chorusWet') {
       chorus.wet.value = value
       chorusSettings.wet = value
+    }  else if (property === 'distortionWet') {
+      distortionNode.wet.value = value
+      distortionSettings.wet = value
     }
 
     this.setState({
       synthSettings,
       chorusSettings,
+      distortionSettings,
       pingPongDelaySettings
-    })
-  }
+    });
+  };
 
   render() {
-    const { synthSettings, chorusSettings, pingPongDelaySettings } = this.state
+    const { synthSettings, chorusSettings, pingPongDelaySettings, distortionSettings} = this.state
 
     const options = ['sine', 'square', 'sawtooth', 'triangle']
 
@@ -225,6 +236,16 @@ export default class Container extends Component {
           step={0.01}
           value={chorusSettings.wet}
           property="chorusWet"
+          handleChange={this.handleValueChange}
+        />
+
+        <SC_Slider
+          name="Distortion Wet"
+          min={0}
+          max={1}
+          step={0.01}
+          value={distortionSettings.wet}
+          property="distortionWet"
           handleChange={this.handleValueChange}
         />
       </div>
