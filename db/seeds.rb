@@ -39,7 +39,25 @@
     name: '13) Metal'
   },
   {
-    name: '13) My synth with UI'
+    name: '14) My synth with UI'
+  },
+  {
+    name: '15)Final set'
+  },
+  {
+    name: '16)Fffffffinal set'
+  },
+  {
+    name: '17)Session'
+  },
+  {
+    name: '18)no comments'
+  },
+  {
+    name: '19)Preparing:  09.12'
+  },
+  {
+    name: '20)rewatching 1202; add some new ui elements 02.12'
   }
 ]
 

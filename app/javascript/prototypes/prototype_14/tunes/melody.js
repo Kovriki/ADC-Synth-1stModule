@@ -1,5 +1,5 @@
 const synth = {
-  volume: -10,
+  volume: -60,
   detune: 0,
   portamento: 0.05,
   envelope: {
@@ -20,6 +20,8 @@ const synth = {
     harmonicity: 0.5
   }
 }
+
+
 
 const chorus = {
   wet: 0.3,

@@ -207,7 +207,7 @@ export default class Container extends Component {
     return (
       <div className="Container">
         <SC_Button
-          text="Art Design & Coding Community"
+          text="breathlive"
           handleClick={this.handleStart}
         />
 
@@ -220,7 +220,7 @@ export default class Container extends Component {
         />
 
         <SC_Slider
-          name="Delay Wet"
+          name="Delay PRIWet"
           min={0}
           max={1}
           step={0.01}
@@ -246,6 +246,16 @@ export default class Container extends Component {
           step={0.01}
           value={distortionSettings.wet}
           property="distortionWet"
+          handleChange={this.handleValueChange}
+        />
+
+        <SC_Slider
+          name="Chorus Wet"
+          min={0}
+          max={1}
+          step={0.01}
+          value={chorusSettings.wet}
+          property="chorusWet"
           handleChange={this.handleValueChange}
         />
       </div>

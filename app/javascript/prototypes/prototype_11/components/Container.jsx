@@ -128,7 +128,7 @@ export default class Container extends Component {
     } else if (property === "synthEnvelopeRelease") {
       bassSynth.envelope.release = value;
       bassSettings.synth.envelope.release = value;
-
+    } else if (property === "pingPongDelayWet") {
       bassPingPongDelay.wet.value = value;
       bassSettings.pingPongDelay.wet = value;
     } else if (property === "chorusWet") {
@@ -196,7 +196,7 @@ export default class Container extends Component {
     return (
       <div className="Container">
         <SC_Button
-          text="Art Design & Coding Community"
+          text="breath"
           handleClick={this.handleStart}
         />
         <p>bass</p>

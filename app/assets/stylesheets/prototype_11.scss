@@ -1,5 +1,5 @@
 .prototype_body_11 {
-  background: var(--medium-grey);
+  background: var( --dark-grey);
 }
 
 #prototype_11 {
@@ -26,6 +26,9 @@
     }
 
     .SC_ToggleButton {
+      width: 100px;
+      height: 80px;
+      border-radius: 30px;
       padding: 8px 10px;
       font-size: 14px;
       text-align: center;
@@ -35,7 +38,7 @@
       cursor: pointer;
 
       &:hover:not(.active) {
-        background-color: var(--light-grey);
+        background-color: var(--black);
       }
 
       &.active {

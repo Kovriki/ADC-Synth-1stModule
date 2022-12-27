@@ -10,14 +10,30 @@ export default class ToneSynth extends Component {
 
   render() {
     const { settings, handleValueChange  } = this.props
-    const options = ['sine', 'square', 'sawtooth', 'triangle']
+    // const options = ['sine', 'square', 'sawtooth', 'triangle']
+    const oscillatorTypes = [
+      'fatsine',
+      'fatsquare',
+      'fatsawtooth',
+      'fattriangle',
+      'fmsine',
+      'fmsquare',
+      'fmsawtooth',
+      'fmtriangle',
+      'amsine',
+      'amsquare',
+      'amsawtooth',
+      'amtriangle',
+      'pulse',
+      'pwm'
+    ]
 
     return (
       <div className="ToneSynth">
 
       <SC_ToggleButtonSet
         name="Type"
-        options={options}
+        options={oscillatorTypes}
         value={settings.synth.oscillator.type}
         property="synthType"
         handleChange={handleValueChange}

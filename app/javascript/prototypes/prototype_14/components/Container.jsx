@@ -18,9 +18,7 @@ let melodySynth;
 let melodyChorus;
 let melodyPingPongDelay;
 
-let samplerChannel
-
-let wave
+let samplerChannel;
 
 export default class Container extends Component {
   constructor(props) {
@@ -28,23 +26,19 @@ export default class Container extends Component {
     this.state = {
       bassSettings,
       melodySettings,
-      drumsSettings
+      drumsSettings,
     };
   }
 
   handleStart = () => {
     const { bassSettings, melodySettings, drumsSettings } = this.state;
-
-
     //
-    //
+    // делаем бас
     bassSynth = new Tone.Synth(bassSettings.synth);
     bassChorus = new Tone.Chorus(bassSettings.chorus).start();
-
     bassPingPongDelay = new Tone.PingPongDelay(
       bassSettings.pingPongDelay
     ).toDestination();
-
     bassSynth.chain(bassChorus, bassPingPongDelay);
 
     const bassPart = new Tone.Part((time, note) => {
@@ -55,20 +49,13 @@ export default class Container extends Component {
         note.velocity
       );
     }, bassSettings.sequence.steps).start(0);
-
     bassPart.loopEnd = bassSettings.sequence.duration;
     bassPart.loop = true;
-
     //
-    //
-
+    // добавляем мелодию
     melodySynth = new Tone.Synth(melodySettings.synth);
     melodyChorus = new Tone.Chorus(melodySettings.chorus).start();
-
-    melodyPingPongDelay = new Tone.PingPongDelay(
-      melodySettings.pingPongDelay
-    ).toDestination();
-
+    melodyPingPongDelay = new Tone.PingPongDelay(melodySettings.pingPongDelay).toDestination();
     melodySynth.chain(melodyChorus, melodyPingPongDelay);
 
     const melodyPart = new Tone.Part((time, note) => {
@@ -83,6 +70,7 @@ export default class Container extends Component {
     melodyPart.loopEnd = melodySettings.sequence.duration;
     melodyPart.loop = true;
     //
+    //+ семплер
     const sampler = new Tone.Sampler({
       urls: {
         A1: "00041-Vermona-DRM1-1.mp3",
@@ -91,10 +79,7 @@ export default class Container extends Component {
       baseUrl: "http://localhost:3000/samples/",
     });
 
-    samplerChannel = new Tone.Channel(
-      drumsSettings.channel
-    ).toDestination();
-
+    samplerChannel = new Tone.Channel(drumsSettings.channel).toDestination();
     sampler.chain(samplerChannel);
 
     const drumsPart = new Tone.Part((time, note) => {
@@ -105,18 +90,9 @@ export default class Container extends Component {
         note.velocity
       );
     }, drumsSettings.sequence.steps).start(0);
-
     drumsPart.loopEnd = drumsSettings.sequence.duration;
     drumsPart.loop = true;
-    //
-
-    Tone.Transport.start();
-    //
-        wave = new Tone.Waveform();
-        bassSynth.connect(wave);
-
-
-  };
+  }
   ///
   handleBassValueChange = (property, value) => {
     const { bassSettings } = this.state;
@@ -136,7 +112,7 @@ export default class Container extends Component {
     } else if (property === "synthEnvelopeRelease") {
       bassSynth.envelope.release = value;
       bassSettings.synth.envelope.release = value;
-
+    } else if (property === "pingPongDelayWet") {
       bassPingPongDelay.wet.value = value;
       bassSettings.pingPongDelay.wet = value;
     } else if (property === "chorusWet") {
@@ -181,51 +157,32 @@ export default class Container extends Component {
     });
   };
 
-    ////
-    handleDrumsValueChange = (property, value) => {
-      const { melodySettings } = this.state;
+  ////
+  handleDrumsValueChange = (property, value) => {
+    const { melodySettings } = this.state;
 
-      if (property === "channelVolume") {
-        samplerChannel.value.value = value;
-        drumsSettings.channel.volume.value = value;
-      } else if (property === "chanelMute") {
-        samplerChannel.mute = value;
-        drumsSettings.channel.mute = value;
-      }
-
-      this.setState({
-        drumsSettings,
-      });
-    };
-
-    draw = (value) => {
-      resizeCanvas(windowWidth, windowHeignt);
-      if (ready){
-        let buffer = wave.getValue(0);
-        for (let i=0; i < buffer.length; i++){
-          let x = map(i,0, buffer.length, 0, width);
-          let y = map(buffer[i], -1, 1, height);
-          point (x,y);
-        }
-      }
+    if (property === "channelVolume") {
+      samplerChannel.value.value = value;
+      drumsSettings.channel.volume.value = value;
+    } else if (property === "chanelMute") {
+      samplerChannel.mute = value;
+      drumsSettings.channel.mute = value;
     }
 
+    this.setState({
+      drumsSettings,
+    });
+  };
 
-
-
-  render(){
+  render() {
     const { bassSettings, melodySettings, drumsSettings } = this.state;
 
     return (
       <div className="Container">
-        <SC_Button
-          text="Take off"
-          handleClick={this.handleStart}
-        />
+        <SC_Button text="Take off" handleClick={this.handleStart} />
 
         <div>
-
-        <h3> FINAL FANTACY </h3>
+          <h3> FINAL FANTACY </h3>
         </div>
 
         <p>bass</p>
@@ -257,8 +214,8 @@ export default class Container extends Component {
           handleChange={this.handleValueChange}
         />
         <Channel
-        settings={drumsSettings}
-        handleValueChange = {this.handleDrumsValueChange}
+          settings={drumsSettings}
+          handleValueChange={this.handleDrumsValueChange}
         />
       </div>
     );

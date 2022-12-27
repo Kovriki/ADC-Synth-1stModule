@@ -1,472 +1,237 @@
 import * as Tone from 'tone'
 import React, { Component } from 'react'
 
-import SC_Button from './SC_Button'
+import * as bassSettings from './tunes/bass.js'
+import * as melodySettings from './tunes/melody.js'
+import * as drumsSettings from './tunes/drums.js'
+
+import ToneSynth from './modules/ToneSynth.jsx'
+import Channel from './modules/Channel.jsx'
+
+import SC_Button from './components/SC_Button'
+import SC_Slider from './components/SC_Slider'
+
+let bassSynth
+let bassChorus
+let bassPingPongDelay
+
+let melodySynth
+let melodyChorus
+let melodyPingPongDelay
+
+let samplerChannel
 
 export default class Container extends Component {
   constructor(props) {
     super(props)
+
+    this.state = {
+      bassSettings,
+      melodySettings,
+      drumsSettings
+    }
   }
 
-  handleClick = () => {
-    const synthSettings = {
-      volume: -20,
-      detune: 0,
-      portamento: 0.05,
-      envelope: {
-        attack: 0.05,
-        attackCurve: 'exponential',
-        decay: 0.2,
-        decayCurve: 'exponential',
-        sustain: 0.2,
-        release: 1.5,
-        releaseCurve: 'exponential'
-      },
-      oscillator: {
-        type: 'sawtooth',
-        modulationType: 'sine',
-        // partialCount: 0,
-        // partials: [],
-        phase: 0,
-        harmonicity: 0.5
-      }
-    }
-
-    const synth = new Tone.Synth(synthSettings)
-
-    // const distortionSettings = {
-    //   wet: 1,
-    //   distortion: 1,
-    //   oversample: '4x'
-    // }
-
-    // const distortion = new Tone.Distortion(distortionSettings).toDestination()
-
-    const chorusSettings = {
-      wet: 0.3,
-      type: 'sine',
-      frequency: 1.5,
-      delayTime: 3.5,
-      depth: 0.7,
-      spread: 180
-    }
-
-    const chorus = new Tone.Chorus(chorusSettings).start()
-
-    const pingPongDelaySettings = { wet: 0.2, delayTime: 0.25, maxDelayTime: 1 }
-
-    const pingPongDelay = new Tone.PingPongDelay(pingPongDelaySettings)
-
-    const jcReverbSettings = {
-      wet: 1,
-      roomSize: 0.3
-    }
-
-    const jcReverb = new Tone.JCReverb(jcReverbSettings).toDestination()
-
-    // const freeverbSettings = {
-    //   wet: 1,
-    //   roomSize: 0.5,
-    //   dampening: 10
-    // }
-    //
-    // const freeverb = new Tone.Freeverb(freeverbSettings)
-
-    // const channelSettings = { volume: 0, pan: 0, mute: false, solo: false }
-    // const channel = new Tone.Channel(channelSettings).toDestination()
-    //
-    // synth.chain(channel)
-    // synth.triggerAttackRelease('C4', '1')
+  handleStart = () => {
+    const { bassSettings, melodySettings, drumsSettings } = this.state
 
     //
     //
-    // Мелодия
-    //
-    //
+    bassSynth = new Tone.Synth(bassSettings.synth)
+    bassChorus = new Tone.Chorus(bassSettings.chorus).start()
 
-    // Целые ноты
-    // const sequence = [
-    //   {
-    //     time: '0:0:0',
-    //     noteName: 'C3',
-    //     duration: '1m',
-    //     velocity: 1
-    //   },
-    //   {
-    //     time: '1:0:0',
-    //     noteName: 'G4',
-    //     duration: '1m',
-    //     velocity: 1
-    //   }
-    // ]
+    bassPingPongDelay = new Tone.PingPongDelay(
+      bassSettings.pingPongDelay
+    ).toDestination()
 
-    // Четвертные ноты играются в четвертные интервалы
-    // const sequence = [
-    //   {
-    //     time: '0:0:0',
-    //     noteName: 'C3',
-    //     duration: '4n',
-    //     velocity: 1
-    //   },
-    //   {
-    //     time: '0:1:0',
-    //     noteName: 'E3',
-    //     duration: '4n',
-    //     velocity: 1
-    //   },
-    //   {
-    //     time: '0:2:0',
-    //     noteName: 'G3',
-    //     duration: '4n',
-    //     velocity: 1
-    //   },
-    //   {
-    //     time: '0:3:0',
-    //     noteName: 'B4',
-    //     duration: '4n',
-    //     velocity: 1
-    //   },
-    //   {
-    //     time: '1:0:0',
-    //     noteName: 'G4',
-    //     duration: '4n',
-    //     velocity: 1
-    //   },
-    //   {
-    //     time: '1:1:0',
-    //     noteName: 'E4',
-    //     duration: '4n',
-    //     velocity: 1
-    //   },
-    //   {
-    //     time: '1:2:0',
-    //     noteName: 'C4',
-    //     duration: '4n',
-    //     velocity: 1
-    //   },
-    //   {
-    //     time: '1:3:0',
-    //     noteName: 'E4',
-    //     duration: '4n',
-    //     velocity: 1
-    //   }
-    // ]
+    bassSynth.chain(bassChorus, bassPingPongDelay)
 
-    // Шестнадцатые ноты
-    // const sequence = [
-    //   {
-    //     time: '0:0:0',
-    //     noteName: 'C3',
-    //     duration: '4n',
-    //     velocity: 1
-    //   },
-    //   {
-    //     time: '0:0:1',
-    //     noteName: 'E3',
-    //     duration: '4n',
-    //     velocity: 1
-    //   },
-    //   {
-    //     time: '0:0:2',
-    //     noteName: 'G3',
-    //     duration: '4n',
-    //     velocity: 1
-    //   },
-    //   {
-    //     time: '0:0:3',
-    //     noteName: 'B4',
-    //     duration: '4n',
-    //     velocity: 1
-    //   },
-    //   {
-    //     time: '0:1:0',
-    //     noteName: 'G4',
-    //     duration: '4n',
-    //     velocity: 1
-    //   },
-    //   {
-    //     time: '0:1:1',
-    //     noteName: 'E4',
-    //     duration: '4n',
-    //     velocity: 1
-    //   },
-    //   {
-    //     time: '0:1:2',
-    //     noteName: 'C4',
-    //     duration: '4n',
-    //     velocity: 1
-    //   },
-    //   {
-    //     time: '0:1:3',
-    //     noteName: 'E4',
-    //     duration: '4n',
-    //     velocity: 1
-    //   },
-    //   {
-    //     time: '0:2:0',
-    //     noteName: 'C3',
-    //     duration: '4n',
-    //     velocity: 1
-    //   },
-    //   {
-    //     time: '0:2:1',
-    //     noteName: 'E3',
-    //     duration: '4n',
-    //     velocity: 1
-    //   },
-    //   {
-    //     time: '0:2:2',
-    //     noteName: 'G3',
-    //     duration: '4n',
-    //     velocity: 1
-    //   },
-    //   {
-    //     time: '0:2:3',
-    //     noteName: 'B4',
-    //     duration: '4n',
-    //     velocity: 1
-    //   },
-    //   {
-    //     time: '0:3:0',
-    //     noteName: 'G4',
-    //     duration: '4n',
-    //     velocity: 1
-    //   },
-    //   {
-    //     time: '0:3:1',
-    //     noteName: 'E4',
-    //     duration: '4n',
-    //     velocity: 1
-    //   },
-    //   {
-    //     time: '0:3:2',
-    //     noteName: 'C4',
-    //     duration: '4n',
-    //     velocity: 1
-    //   },
-    //   {
-    //     time: '0:3:3',
-    //     noteName: 'E4',
-    //     duration: '4n',
-    //     velocity: 1
-    //   },
-    //   //
-    //   {
-    //     time: '1:0:0',
-    //     noteName: 'C3',
-    //     duration: '4n',
-    //     velocity: 1
-    //   },
-    //   {
-    //     time: '1:0:1',
-    //     noteName: 'E3',
-    //     duration: '4n',
-    //     velocity: 1
-    //   },
-    //   {
-    //     time: '1:0:2',
-    //     noteName: 'G3',
-    //     duration: '4n',
-    //     velocity: 1
-    //   },
-    //   {
-    //     time: '1:0:3',
-    //     noteName: 'B4',
-    //     duration: '4n',
-    //     velocity: 1
-    //   },
-    //   {
-    //     time: '1:1:0',
-    //     noteName: 'G4',
-    //     duration: '4n',
-    //     velocity: 1
-    //   },
-    //   {
-    //     time: '1:1:1',
-    //     noteName: 'E4',
-    //     duration: '4n',
-    //     velocity: 1
-    //   },
-    //   {
-    //     time: '1:1:2',
-    //     noteName: 'C4',
-    //     duration: '4n',
-    //     velocity: 1
-    //   },
-    //   {
-    //     time: '1:1:3',
-    //     noteName: 'E4',
-    //     duration: '4n',
-    //     velocity: 1
-    //   },
-    //   {
-    //     time: '1:2:0',
-    //     noteName: 'C3',
-    //     duration: '4n',
-    //     velocity: 1
-    //   },
-    //   {
-    //     time: '1:2:1',
-    //     noteName: 'E3',
-    //     duration: '4n',
-    //     velocity: 1
-    //   },
-    //   {
-    //     time: '1:2:2',
-    //     noteName: 'G3',
-    //     duration: '4n',
-    //     velocity: 1
-    //   },
-    //   {
-    //     time: '1:2:3',
-    //     noteName: 'B4',
-    //     duration: '4n',
-    //     velocity: 1
-    //   },
-    //   {
-    //     time: '1:3:0',
-    //     noteName: 'G4',
-    //     duration: '4n',
-    //     velocity: 1
-    //   },
-    //   {
-    //     time: '1:3:1',
-    //     noteName: 'E4',
-    //     duration: '4n',
-    //     velocity: 1
-    //   },
-    //   {
-    //     time: '1:3:2',
-    //     noteName: 'C4',
-    //     duration: '4n',
-    //     velocity: 1
-    //   },
-    //   {
-    //     time: '1:3:3',
-    //     noteName: 'E4',
-    //     duration: '4n',
-    //     velocity: 1
-    //   }
-    // ]
-
-    // Тестовая мелодия
-    const sequence = [
-      {
-        time: '0:0:0',
-        noteName: 'A1',
-        duration: '2m',
-        velocity: 1
-      },
-      {
-        time: '0:1:0',
-        noteName: 'B3',
-        duration: '1n',
-        velocity: 1
-      },
-      {
-        time: '0:2:0',
-        noteName: 'A2',
-        duration: '4n',
-        velocity: 1
-      },
-      {
-        time: '0:2:2',
-        noteName: 'B3',
-        duration: '4n',
-        velocity: 1
-      },
-      {
-        time: '0:2:4',
-        noteName: 'B4',
-        duration: '4n',
-        velocity: 1
-      },
-      {
-        time: '0:2:6',
-        noteName: 'B2',
-        duration: '4n',
-        velocity: 1
-      },
-      {
-        time: '0:2:8',
-        noteName: 'B4',
-        duration: '4n',
-        velocity: 1
-      },
-      {
-        time: '0:2:10',
-        noteName: 'C2',
-        duration: '4n',
-        velocity: 1
-      },
-      {
-        time: '0:3:0',
-        noteName: 'C1',
-        duration: '4n',
-        velocity: 1
-      },
-      {
-        time: '1:0:0',
-        noteName: 'B3',
-        duration: '4n',
-        velocity: 0.7
-      },
-      {
-        time: '1:1:0',
-        noteName: 'B4',
-        duration: '4n',
-        velocity: 0.8
-      },
-      {
-        time: '1:2:0',
-        noteName: 'B5',
-        duration: '4n',
-        velocity: 1
-      },
-      {
-        time: '1:3:0',
-        noteName: 'B1',
-        duration: '4n',
-        velocity: 1
-      },
-      {
-        time: '1:3:2',
-        noteName: 'C2',
-        duration: '4n',
-        velocity: 1
-      }
-    ]
-
-    // Создаём партию, добавляем в неё секвенцию
-    // и включаем проигрывание
-    const part = new Tone.Part((time, note) => {
-      synth.triggerAttackRelease(
+    const bassPart = new Tone.Part((time, note) => {
+      bassSynth.triggerAttackRelease(
         note.noteName,
         note.duration,
         time,
         note.velocity
       )
-    }, sequence).start(0)
+    }, bassSettings.sequence.steps).start(0)
 
-    // Указываем длительность партии
-    part.loopEnd = '2m'
+    bassPart.loopEnd = bassSettings.sequence.duration
+    bassPart.loop = bassSettings.sequence.loop
+    //
+    //
+    melodySynth = new Tone.Synth(melodySettings.synth)
+    melodyChorus = new Tone.Chorus(melodySettings.chorus).start()
 
-    // Включаем зацикливание
-    part.loop = true
+    melodyPingPongDelay = new Tone.PingPongDelay(
+      melodySettings.pingPongDelay
+    ).toDestination()
 
-    // Включаем звук в браузере
-    // sampler.context.resume()
+    melodySynth.chain(melodyChorus, melodyPingPongDelay)
 
-    // Включаем отсчёт времени в Tone.js
+    const melodyPart = new Tone.Part((time, note) => {
+      melodySynth.triggerAttackRelease(
+        note.noteName,
+        note.duration,
+        time,
+        note.velocity
+      )
+    }, melodySettings.sequence.steps).start(0)
+
+    melodyPart.loopEnd = melodySettings.sequence.duration
+    melodyPart.loop = melodySettings.sequence.loop
+    //
+    //
+    const sampler = new Tone.Sampler({
+      urls: {
+        A1: '00001-Linn-9000-BassDrumrum1.mp3',
+        A2: '00017-Linn-9000-Snare.mp3'
+      },
+      baseUrl: 'http://localhost:3000/samples/'
+      // onload: () => {
+      //   sampler.triggerAttackRelease(['A1', 'A2', 'A1', 'A2'], 0.5)
+      // }
+    })
+
+    samplerChannel = new Tone.Channel(drumsSettings.channel).toDestination()
+
+    sampler.chain(samplerChannel)
+
+    const drumsPart = new Tone.Part((time, note) => {
+      sampler.triggerAttackRelease(
+        note.noteName,
+        note.duration,
+        time,
+        note.velocity
+      )
+    }, drumsSettings.sequence.steps).start(0)
+
+    drumsPart.loopEnd = drumsSettings.sequence.duration
+    drumsPart.loop = drumsSettings.sequence.loop
+
     Tone.Transport.start()
   }
 
+  handleBassValueChange = (property, value) => {
+    const { bassSettings } = this.state
+
+    if (property === 'synthType') {
+      bassSynth.oscillator.type = value
+      bassSettings.synth.oscillator.type = value
+    } else if (property === 'synthEnvelopeAttack') {
+      bassSynth.envelope.attack = value
+      bassSettings.synth.envelope.attack = value
+    } else if (property === 'synthEnvelopeDecay') {
+      bassSynth.envelope.decay = value
+      bassSettings.synth.envelope.decay = value
+    } else if (property === 'synthEnvelopeSustain') {
+      bassSynth.envelope.sustain = value
+      bassSettings.synth.envelope.sustain = value
+    } else if (property === 'synthEnvelopeRelease') {
+      bassSynth.envelope.release = value
+      bassSettings.synth.envelope.release = value
+    } else if (property === 'pingPongDelayWet') {
+      bassPingPongDelay.wet.value = value
+      bassSettings.pingPongDelay.wet = value
+    } else if (property === 'chorusWet') {
+      bassChorus.wet.value = value
+      bassSettings.chorus.wet = value
+    }
+
+    this.setState({
+      bassSettings
+    })
+  }
+
+  handleMelodyValueChange = (property, value) => {
+    const { melodySettings } = this.state
+
+    if (property === 'synthType') {
+      melodySynth.oscillator.type = value
+      melodySettings.synth.oscillator.type = value
+    } else if (property === 'synthEnvelopeAttack') {
+      melodySynth.envelope.attack = value
+      melodySettings.synth.envelope.attack = value
+    } else if (property === 'synthEnvelopeDecay') {
+      melodySynth.envelope.decay = value
+      melodySettings.synth.envelope.decay = value
+    } else if (property === 'synthEnvelopeSustain') {
+      melodySynth.envelope.sustain = value
+      melodySettings.synth.envelope.sustain = value
+    } else if (property === 'synthEnvelopeRelease') {
+      melodySynth.envelope.release = value
+      melodySettings.synth.envelope.release = value
+    } else if (property === 'pingPongDelayWet') {
+      melodyPingPongDelay.wet.value = value
+      melodySettings.pingPongDelay.wet = value
+    } else if (property === 'chorusWet') {
+      melodyChorus.wet.value = value
+      melodySettings.chorus.wet = value
+    }
+
+    this.setState({
+      melodySettings
+    })
+  }
+
+  handleDrumsValueChange = (property, value) => {
+    const { drumsSettings } = this.state
+
+    if (property === 'channelVolume') {
+      samplerChannel.volume.value = value
+      drumsSettings.channel.volume = value
+    } else if (property === 'channelMute') {
+      samplerChannel.mute = value
+      drumsSettings.channel.mute = value
+    }
+
+    this.setState({
+      drumsSettings
+    })
+  }
+
   render() {
+    const { bassSettings, melodySettings, drumsSettings } = this.state
+
     return (
       <div className="Container">
         <SC_Button
           text="Art Design & Coding Community"
-          handleClick={this.handleClick}
+          handleClick={this.handleStart}
+        />
+
+        <ToneSynth
+          settings={bassSettings}
+          handleValueChange={this.handleBassValueChange}
+        />
+
+        <ToneSynth
+          settings={melodySettings}
+          handleValueChange={this.handleMelodyValueChange}
+        />
+
+        <SC_Slider
+          name="Delay Wet"
+          min={0}
+          max={1}
+          step={0.01}
+          value={bassSettings.pingPongDelay.wet}
+          property="pingPongDelayWet"
+          handleChange={this.handleValueChange}
+        />
+
+        <SC_Slider
+          name="Chorus Wet"
+          min={0}
+          max={1}
+          step={0.01}
+          value={bassSettings.chorus.wet}
+          property="chorusWet"
+          handleChange={this.handleValueChange}
+        />
+
+        <Channel
+          settings={drumsSettings}
+          handleValueChange={this.handleDrumsValueChange}
         />
       </div>
     )

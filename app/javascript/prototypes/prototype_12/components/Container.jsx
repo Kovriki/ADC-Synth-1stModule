@@ -20,7 +20,7 @@ let melodyPingPongDelay;
 
 let samplerChannel
 
-let wave
+
 
 export default class Container extends Component {
   constructor(props) {
@@ -110,13 +110,9 @@ export default class Container extends Component {
     drumsPart.loop = true;
     //
 
-    Tone.Transport.start();
-    //
-        wave = new Tone.Waveform();
-        bassSynth.connect(wave);
 
 
-  };
+  }
   ///
   handleBassValueChange = (property, value) => {
     const { bassSettings } = this.state;
@@ -198,17 +194,6 @@ export default class Container extends Component {
       });
     };
 
-    draw = (value) => {
-      resizeCanvas(windowWidth, windowHeignt);
-      if (ready){
-        let buffer = wave.getValue(0);
-        for (let i=0; i < buffer.length; i++){
-          let x = map(i,0, buffer.length, 0, width);
-          let y = map(buffer[i], -1, 1, height);
-          point (x,y);
-        }
-      }
-    }
 
 
 
