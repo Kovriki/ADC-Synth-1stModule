@@ -36,6 +36,10 @@ const chorus = {
 
 const pingPongDelay = { wet: 0.2, delayTime: 0.25, maxDelayTime: 1 }
 
+const pingPongUI = {
+  pingPongShow = false
+}
+
 const sequence = {
   steps: [
     {
@@ -67,4 +71,4 @@ const sequence = {
   loop: true
 }
 
-export { synth, synthUI, chorus, pingPongDelay, sequence }
+export { synth, synthUI, chorus, pingPongDelay, pingPongUI, sequence }

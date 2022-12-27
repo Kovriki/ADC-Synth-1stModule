@@ -18,9 +18,9 @@ handleValueChange = (property, value) => {
     const { settings, handleValueChange } = this.props
 
     return (
-      <div>
+      <div className='envelopeSliders'>
         <SC_Slider
-          name="Synth Envelope Attack"
+          name="Attack"
           min={0}
           max={10}
           step={0.01}
@@ -30,7 +30,7 @@ handleValueChange = (property, value) => {
         />
 
         <SC_Slider
-          name="Synth Envelope Decay"
+          name="Decay"
           min={0}
           max={10}
           step={0.01}
@@ -40,7 +40,7 @@ handleValueChange = (property, value) => {
         />
 
         <SC_Slider
-          name="Synth Envelope Sustain"
+          name="Sustain"
           min={0}
           max={1}
           step={0.01}
@@ -50,7 +50,7 @@ handleValueChange = (property, value) => {
         />
 
         <SC_Slider
-          name="Synth Envelope Release"
+          name="Release"
           min={0}
           max={10}
           step={0.01}
@@ -65,26 +65,18 @@ handleValueChange = (property, value) => {
   render() {
     const { settings } = this.props
     const oscillatorTypes = [
-      'fatsine',
-      'fatsquare',
-      'fatsawtooth',
-      'fattriangle',
-      'fmsine',
-      'fmsquare',
-      'fmsawtooth',
-      'fmtriangle',
-      'amsine',
-      'amsquare',
-      'amsawtooth',
-      'amtriangle',
-      'pulse',
-      'pwm'
+      'sine',
+      'square',
+      'sawtooth',
+      'triangle',
+
     ]
 
     return (
       <div className="ToneSynth">
         <SC_ToggleButtonSet
-          name="Synth Type"
+          name="wave
+           Type"
           options={oscillatorTypes}
           value={settings.synth.oscillator.type}
           property="synthType"
@@ -92,7 +84,7 @@ handleValueChange = (property, value) => {
         />
 
         <br />
-
+        <div  className='envelope'>
         <SC_ToggleButton
           text="Envelope"
           isOn={settings.synthUI.envelopeShow}
@@ -103,6 +95,7 @@ handleValueChange = (property, value) => {
             )
           }
         />
+        </div>
 
         {settings.synthUI.envelopeShow ? this.renderEnvelopeControls() : ''}
       </div>

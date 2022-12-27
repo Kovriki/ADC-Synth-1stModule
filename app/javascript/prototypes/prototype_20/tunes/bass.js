@@ -12,7 +12,7 @@ const synth = {
     releaseCurve: 'exponential'
   },
   oscillator: {
-    type: 'sawtooth',
+    type: 'sine',
     modulationType: 'sine',
     // partialCount: 0,
     // partials: [],

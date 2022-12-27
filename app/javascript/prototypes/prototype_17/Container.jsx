@@ -145,6 +145,8 @@ export default class Container extends Component {
     } else if (property === 'synthShowEnvelope') {
       console.log(bassSettings, bassSettings.synthUI, value)
       bassSettings.synthUI.envelopeShow = value
+    } else if (property === 'pingPongShow') {
+      bassSettings.pingPongUI.pingPongShow = value
     }
 
     this.setState({
@@ -181,6 +183,8 @@ export default class Container extends Component {
       melodySettings.chorus.spread = value
     } else if (property === 'synthShowEnvelope') {
       melodySettings.synthUI.envelopeShow = value
+    }else if (property === 'pingPongShow') {
+      melodySettings.pingPongUI.pingPongShow = value
     }
 
     this.setState({

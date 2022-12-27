@@ -449,7 +449,7 @@ export default class Container extends Component {
   renderStartButton = () => {
     return (
       <SC_Button
-        text="Art Design & Coding Community"
+        text="start e-pressure"
         handleClick={this.handleStart}
       />
     );
@@ -479,6 +479,10 @@ export default class Container extends Component {
 
     return (
       <div className="instrumentUI">
+        <div className='column' id='1'>
+
+        <h2>emotional pressure synth</h2>
+
         <SC_Slider
           name="BPM"
           min={0}
@@ -490,6 +494,53 @@ export default class Container extends Component {
             this.handleTransportChange(property, value);
           }}
         />
+        
+        <SC_ToggleButtonSet
+          name="Sequence"
+          options={["tension", "stress"]}
+          value={melodySettings.sequence.current}
+          property="melodySequence"
+          handleChange={this.handleMelodySequenceChange}
+        />
+
+
+<h2>2nd mind</h2>
+        <ToneSynth
+          instrumentName="melody"
+          settings={melodySettings}
+          handleValueChange={this.handleValueChange}
+        />
+        <h2>PingPongDelayEffect</h2>
+
+        <PingPongDelayEffect
+          instrumentName="melody"
+          settings={melodySettings}
+          handleValueChange={this.handleValueChange}
+        />
+
+        <h2>ChorusEffect</h2>
+        <ChorusEffect
+          instrumentName="melody"
+          settings={melodySettings}
+          handleValueChange={this.handleValueChange}
+        />
+
+
+
+
+        
+
+
+
+        </div>
+
+
+
+
+
+        <div className='column' id='2'>
+
+        <h2>-nd synth</h2>
 
         <Select
           name="Change melody on measure"
@@ -502,66 +553,51 @@ export default class Container extends Component {
           }
           handleChange={this.handleMelodyChangeMeasure}
         />
+        <div className='row'>
 
         <SC_ToggleButton
           text={melodyChangeButtonText}
           isOn={melodyChange}
           handleClick={this.handleMelodyChange}
         />
-
-        <br />
-
         <SC_ToggleButton
           text="Random"
           isOn={melodyChangeRandom}
           handleClick={this.handleMelodyChangeRandom}
         />
+        </div>
+        <div className='asterBlock'></div>
 
+        
+        <h2>1st mind</h2>
         <ToneSynth
           instrumentName="bass"
           settings={bassSettings}
           handleValueChange={this.handleValueChange}
         />
-
+        <h2>PingPongDelayEffect</h2>
         <PingPongDelayEffect
           instrumentName="bass"
           settings={bassSettings}
           handleValueChange={this.handleValueChange}
         />
-
+        <h2>ChorusEffect</h2>
         <ChorusEffect
           instrumentName="bass"
           settings={bassSettings}
           handleValueChange={this.handleValueChange}
         />
 
-        <ToneSynth
-          instrumentName="melody"
-          settings={melodySettings}
-          handleValueChange={this.handleValueChange}
-        />
 
-        <br />
 
-        <SC_ToggleButtonSet
-          name="Sequence"
-          options={["steps1", "steps2"]}
-          value={melodySettings.sequence.current}
-          property="melodySequence"
-          handleChange={this.handleMelodySequenceChange}
-        />
+        </div>
+      
 
-        <PingPongDelayEffect
-          instrumentName="melody"
-          settings={melodySettings}
-          handleValueChange={this.handleValueChange}
-        />
 
-        <ChorusEffect
-          instrumentName="melody"
-          settings={melodySettings}
-          handleValueChange={this.handleValueChange}
-        />
+
+        
+
+        
 
         <Channel
           settings={drumsSettings}
