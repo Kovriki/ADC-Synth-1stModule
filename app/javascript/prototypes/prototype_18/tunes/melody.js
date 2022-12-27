@@ -198,4 +198,5 @@ const sequence = {
   loop: true
 }
 
+
 export { synth, synthUI, chorus, pingPongDelay,channel, sequence }
