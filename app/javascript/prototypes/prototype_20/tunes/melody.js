@@ -1,5 +1,5 @@
 const synth = {
-  volume: -15,
+  volume: 0,
   detune: 0,
   portamento: 0.05,
   envelope: {
@@ -42,7 +42,7 @@ const channel = {
 }
 
 const sequence = {
-  tension: [
+  steps1: [
     {
       time: "0:0:0",
       noteName: "C2",
@@ -194,89 +194,120 @@ const sequence = {
       velocity: 1,
     },
   ],
-  stress: [
+  steps2: [
     {
       time: "0:0:0",
-      noteName: "C5",
+      noteName: "G4",
       duration: "4n",
       velocity: 1,
     },
     {
-      time: "0:0:2",
-      noteName: "A5",
+      time: "0:0:1",
+      noteName: "D5",
+      duration: "8n",
+      velocity: 1,
+    },
+    {
+      time: "0:1:1",
+      noteName: "C5",
       duration: "1n",
       velocity: 1,
     },
     {
-      time: "0:1:0",
-      noteName: "E5",
-      duration: "4n",
+      time: "0:2:2",
+      noteName: "G4",
+      duration: "1n",
       velocity: 1,
     },
     {
-      time: "0:2:0",
-      noteName: "G5",
-      duration: "4n",
-      velocity: 1,
-    },
-    {
-      time: "0:3:0",
-      noteName: "C5",
-      duration: "4n",
-      velocity: 1,
-    },
-    {
-      time: "0:3:1",
-      noteName: "E5",
-      duration: "4n",
-      velocity: 1,
-    },
-    {
-      time: "0:3:2",
-      noteName: "G5",
+      time: "0:3:3",
+      noteName: "A4",
       duration: "4n",
       velocity: 1,
     },
     {
       time: "1:0:0",
-      noteName: "D5",
+      noteName: "D4",
+      duration: "1n",
+      velocity: 1,
+    },
+    {
+      time: "1:0:3",
+      noteName: "F5",
       duration: "4n",
       velocity: 1,
     },
     {
       time: "1:1:0",
-      noteName: "G5",
-      duration: "4n",
+      noteName: "C4",
+      duration: "2n",
       velocity: 1,
     },
     {
-      time: "1:1:2",
-      noteName: "E5",
+      time: "1:2:0",
+      noteName: "D4",
+      duration: "4n",
+      velocity: 1,
+    },
+    ///
+    {
+      time: "1:3:0",
+      noteName: "D4",
       duration: "4n",
       velocity: 0.7,
     },
     {
-      time: "1:1:3",
-      noteName: "D6",
+      time: "2:0:0",
+      noteName: "C4",
       duration: "4n",
       velocity: 0.8,
     },
     {
-      time: "1:2:0",
-      noteName: "C5",
+      time: "2:1:0",
+      noteName: "A3",
       duration: "4n",
       velocity: 1,
     },
     {
-      time: "1:3:0",
-      noteName: "G5",
+      time: "2:3:0",
+      noteName: "F3",
       duration: "4n",
       velocity: 1,
     },
     {
-      time: "1:3:2",
-      noteName: "C6",
+      time: "3:0:0",
+      noteName: "G3",
       duration: "4n",
+      velocity: 1,
+    },
+    {
+      time: "3:1:0",
+      noteName: "D4",
+      duration: "4n",
+      velocity: 0.7,
+    },
+    {
+      time: "3:2:0",
+      noteName: "F4",
+      duration: "4n",
+      velocity: 0.8,
+    },
+    {
+      time: "3:3:0",
+      noteName: "C4",
+      duration: "4n",
+      velocity: 1,
+    },
+    {
+      time: "4:2:0",
+      noteName: "D4",
+      duration: "4n",
+      velocity: 1,
+    },
+    {
+      time: "5:2:0",
+      noteName: "G3",
+      duration: "2n",
       velocity: 1,
     },
   ],
@@ -284,4 +315,4 @@ const sequence = {
   loop: true
 }
 
-export { synth, synthUI, chorus, pingPongDelay,channel, sequence }
+export { synth, synthUI, chorus, pingPongDelay, channel, sequence }

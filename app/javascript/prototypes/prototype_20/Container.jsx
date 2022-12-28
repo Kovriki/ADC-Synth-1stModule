@@ -151,14 +151,14 @@ export default class Container extends Component {
 
     bassSynth.chain(bassChorus, bassPingPongDelay);
 
-    bassPart = new Tone.Part((time, note) => {
+    const bassPart = new Tone.Part((time, note) => {
       bassSynth.triggerAttackRelease(
         note.noteName,
         note.duration,
         time,
         note.velocity
       );
-    }, bassSettings.sequence.steps1).start(0);
+    }, bassSettings.sequence.steps).start(0);
 
     bassPart.loopEnd = bassSettings.sequence.duration;
     bassPart.loop = bassSettings.sequence.loop;
@@ -188,9 +188,14 @@ export default class Container extends Component {
     //
     sampler = new Tone.Sampler({
       urls: {
-        A1: "00001-Linn-9000-BassDrumrum1.mp3",
-        A2: "00017-Linn-9000-Snare.mp3",
-        A3: "00002-Linn-9000-Clhh-1.mp3",
+        A1: "shkshkshk.wav",
+        A2: "px.wav",
+        A3: "pau.mp3",
+        A4: "WA_SineDroop_Arp-160-C.wav",
+        A5: "WA_Wobbulous_Arp-160-A.wav",
+        A6: "WA_Flauter-160-C.wav",
+        B1: "klee-ta-ta-ta-and-woo.mp3"
+
       },
       baseUrl: "http://localhost:3000/samples/",
       // onload: () => {
@@ -484,7 +489,7 @@ export default class Container extends Component {
         <h2>emotional pressure synth</h2>
 
         <SC_Slider
-          name="BPM"
+          name="speed of thoughts"
           min={0}
           max={300}
           step={1}
@@ -496,21 +501,21 @@ export default class Container extends Component {
         />
         
         <SC_ToggleButtonSet
-          name="Sequence"
-          options={["tension", "stress"]}
+          name="Stress steps"
+          options={["steps1", "steps2"]}
           value={melodySettings.sequence.current}
           property="melodySequence"
           handleChange={this.handleMelodySequenceChange}
         />
 
 
-<h2>2nd mind</h2>
+        <h2>1st mind</h2>
         <ToneSynth
           instrumentName="melody"
           settings={melodySettings}
           handleValueChange={this.handleValueChange}
         />
-        <h2>PingPongDelayEffect</h2>
+        <h2>lethargy</h2>
 
         <PingPongDelayEffect
           instrumentName="melody"
@@ -518,32 +523,48 @@ export default class Container extends Component {
           handleValueChange={this.handleValueChange}
         />
 
-        <h2>ChorusEffect</h2>
+        <h2>Multiply thoughts -st</h2>
         <ChorusEffect
           instrumentName="melody"
           settings={melodySettings}
           handleValueChange={this.handleValueChange}
         />
 
+        <h2>headache</h2>
+        <div className="drumsBntSet">
 
-
-
-        
-
-
-
+          <SC_Button
+                    text="pw"
+                    handleClick={() => {
+                      sampler.triggerAttackRelease("A3", "1n");
+                    }}
+                  />
+          <SC_Button
+                    text="turu"
+                    handleClick={() => {
+                      sampler.triggerAttackRelease("A5", "1n");
+                    }}
+                  />
+          <SC_Button
+                    text="puru"
+                    handleClick={() => {
+                      sampler.triggerAttackRelease("A6", "1n");
+                    }}
+                  />
+          <SC_Button
+                    text="ta-taa"
+                    handleClick={() => {
+                      sampler.triggerAttackRelease("B1", "1m");
+                    }}
+                  />
+        </div>
         </div>
 
-
-
-
-
         <div className='column' id='2'>
-
-        <h2>-nd synth</h2>
+        <h2 className= "withoutOutline">*</h2>
 
         <Select
-          name="Change melody on measure"
+          name="Expressions"
           options={[2, 4, 8, 16, 32]}
           isOpened={melodyChangeMeasureSelect}
           value={melodyChangeMeasure}
@@ -566,43 +587,38 @@ export default class Container extends Component {
           handleClick={this.handleMelodyChangeRandom}
         />
         </div>
-        <div className='asterBlock'></div>
+        <div className='asterBlock'>
+          <p>*</p>
+        </div>
 
         
-        <h2>1st mind</h2>
+        <h2>2ns mind</h2>
         <ToneSynth
           instrumentName="bass"
           settings={bassSettings}
           handleValueChange={this.handleValueChange}
         />
-        <h2>PingPongDelayEffect</h2>
+        <h2>lethargy</h2>
         <PingPongDelayEffect
           instrumentName="bass"
           settings={bassSettings}
           handleValueChange={this.handleValueChange}
         />
-        <h2>ChorusEffect</h2>
+        <h2>Multiply thoughts -nd</h2>
         <ChorusEffect
           instrumentName="bass"
           settings={bassSettings}
           handleValueChange={this.handleValueChange}
         />
 
-
-
+        <div className="drumsBox">
+          <Channel
+            settings={drumsSettings}
+            handleValueChange={this.handleDrumsValueChange}
+          />
         </div>
-      
+        </div>
 
-
-
-        
-
-        
-
-        <Channel
-          settings={drumsSettings}
-          handleValueChange={this.handleDrumsValueChange}
-        />
       </div>
     );
   };

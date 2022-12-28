@@ -16,14 +16,14 @@ export default class ChorusEffect extends Component {
   render() {
     const { title, instrumentName, settings } = this.props;
     const { wet, type, frequency, delayTime, depth, spread } = settings.chorus;
-    const oscillatorTypes = ["sine", "square", "triangle", "sawtooth"];
+    const oscillatorTypes = ["sine", "square", "sawtooth", "triangle"];
 
     return (
       <div className="ChorusEffect">
         <h3>{title}</h3>
 
         <SC_Slider
-          name="Wet"
+          name="power"
           property="chorusWet"
           min={0}
           max={1}
@@ -33,13 +33,16 @@ export default class ChorusEffect extends Component {
         />
 
         <SC_ToggleButtonSet
-          name="Type"
+          name="Wave type"
           property="chorusType"
           value={type}
           options={oscillatorTypes}
           handleChange={this.handleValueChange}
         />
 
+
+
+        <div className = "chorusSliders">
         <SC_Slider
           name="Frequency"
           property="chorusFrequency"
@@ -79,6 +82,9 @@ export default class ChorusEffect extends Component {
           value={spread}
           handleChange={this.handleValueChange}
         />
+
+        </div>
+
       </div>
     );
   }

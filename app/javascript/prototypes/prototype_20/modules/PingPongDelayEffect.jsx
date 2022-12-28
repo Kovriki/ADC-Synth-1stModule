@@ -21,7 +21,7 @@ export default class PingPongDelayEffect extends Component {
         <h3>{title}</h3>
 
         <SC_Slider
-          name="Wet"
+          name="power"
           property="pingPongDelayWet"
           min={0}
           max={1}
@@ -29,6 +29,8 @@ export default class PingPongDelayEffect extends Component {
           value={wet}
           handleChange={this.handleValueChange}
         />
+
+        <div className="pingPongSliders">
 
         <SC_Slider
           name="Delay Time"
@@ -49,6 +51,8 @@ export default class PingPongDelayEffect extends Component {
           value={maxDelayTime}
           handleChange={this.handleValueChange}
         />
+        </div>
+
       </div>
     );
   }

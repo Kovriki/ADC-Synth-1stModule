@@ -17,7 +17,7 @@ export default class ToneSynth extends Component {
 
 
         <SC_Slider
-          name="Channel Volume"
+          name="pain power "
           min={-60}
           max={10}
           step={1}
@@ -27,7 +27,7 @@ export default class ToneSynth extends Component {
         />
 
         <SC_ToggleButton
-          text="Mute"
+          text="stop it"
           isOn={settings.channel.mute}
           handleClick={() =>
             handleValueChange('channelMute', !settings.channel.mute)

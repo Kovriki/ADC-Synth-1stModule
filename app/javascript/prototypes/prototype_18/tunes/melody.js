@@ -42,7 +42,7 @@ const channel = {
 }
 
 const sequence = {
-  steps: [
+  steps1: [
     {
       time: '0:0:0',
       noteName: 'C2',
